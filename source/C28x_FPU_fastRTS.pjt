@@ -1,0 +1,36 @@
+; Code Composer Project File, Version 2.0 (do not modify or remove this line)
+
+[Project Settings]
+ProjectDir="C:\Data\C28x_FPU_FastRTS\source\"
+ProjectType=Library
+CPUFamily=TMS320C28XX
+Tool="Archiver"
+Tool="Compiler"
+Tool="CustomBuilder"
+Tool="DspBiosBuilder"
+Config="Debug"
+Config="Release"
+
+[Source Files]
+Source="atan2_f32.asm"
+Source="atan_f32.asm"
+Source="cos_f32.asm"
+Source="div_f32.asm"
+Source="FPUmathTables.ASM"
+Source="isqrt_f32.asm"
+Source="sin_f32.asm"
+Source="sincos_f32.asm"
+Source="sqrt_f32.asm"
+
+["Archiver" Settings: "Debug"]
+Options=-r -o"..\lib\rts2800_fpu32_fast_supplement.lib"
+
+["Archiver" Settings: "Release"]
+Options=-r -o".\Release\C28x_FPU_Lib.lib"
+
+["Compiler" Settings: "Debug"]
+Options=-g -pdsw225 -o3 -fr"$(Proj_dir)\Debug" -i"..\include" -d"alignbuf" -d"_DEBUG" -d"LARGE_MODEL" -ml -v28 --float_support=fpu32
+
+["Compiler" Settings: "Release"]
+Options=-pdsw225 -o3 -fr"$(Proj_dir)\Release" -d"LARGE_MODEL" -ml -v28
+
