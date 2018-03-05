@@ -13,10 +13,21 @@
 #include "TPVSI_DSP28335_BSP.h"
 #include "Solar_F.h"
 
+#define SAMPLE_NUM 3
 typedef struct{
-	float data;//数据
-	float k;//ADC转换的比例系数
+	float data[SAMPLE_NUM];//数据
+	float k[SAMPLE_NUM];//ADC转换的比例系数
 }Sample_Stru;
+
+typedef struct{
+	float kp;
+	float ki;
+	float Ts;
+	float output;
+	float err;
+	float err_last;
+	float output_last;
+}PID_Stru;
 
 
 #endif /* TPVSI_DSP28335_CONTROL_H_ */
