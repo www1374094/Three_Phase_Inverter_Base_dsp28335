@@ -6,6 +6,9 @@
  */
 #include "TPVSI_DSP28335_Control.h"
 
+/*全局变量定义*/
+ABC_DQ0_POS_F p_vol_dq0;
+Sample_Stru p_vol_sam;
 
 /*
  * FunName:CON_Sample_Init
@@ -17,9 +20,9 @@ void CON_Sample_Init(Sample_Stru *p)
 {
 	Uint8 i;
 	/*TODO:在这里定义采样的系数*/
-	p->k[0] = 0;
-	p->k[1] = 0;
-	p->k[2] = 0;
+	p->k[0] = 0.10355509;
+	p->k[1] = 0.10355509;
+	p->k[2] = 0.10355509;
 	/*下面初始化数据数组*/
 	for(i=0;i<SAMPLE_NUM;i++)
 	{
@@ -43,7 +46,7 @@ void CON_Sample(Sample_Stru *p)
 	/*TODO：在这里定义采样零点偏移量*/
 	zero[0] = 1430;
 	zero[1] = 1430;
-	zerp[2] = 1430;
+	zero[2] = 1430;
 	/*下面计算各采样数据*/
 	for(;i<SAMPLE_NUM;i++)
 	{
@@ -103,7 +106,7 @@ void CON_PID_DeInit(PID_Stru *p)
  * */
 void CON_PID_Init(PID_Stru *p,float Ts,float kp,float ki)
 {
-	CON_PID_Deinit(p);
+	CON_PID_DeInit(p);
 	p->Ts = Ts;
 	p->kp = kp;
 	p->ki = ki;
@@ -140,6 +143,8 @@ void CON_VOL_CL_PID(PID_Stru *dpid,PID_Stru *qpid,ABC_DQ0_POS_F *abc_dq0_pos1)
 		else if(qpid->output<0)
 			qpid->output = 0;
 }
+
+
 
 
 

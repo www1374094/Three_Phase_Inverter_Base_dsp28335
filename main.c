@@ -9,6 +9,9 @@
 
 
 #include "DSP28x_Project.h"
+
+
+/*全局变量定义*/
 int main(void)
 {
 	memcpy((Uint16 *)&RamfuncsRunStart,(Uint16 *)&RamfuncsLoadStart, (unsigned long)&RamfuncsLoadSize);
@@ -35,6 +38,8 @@ int main(void)
 	BSP_DMA_Init();
 	/*TODO:这里初始化一些结构体之类的东西*/
 	EPWM_Structure_Init();
+	CON_Sample_Init(&p_vol_sam);
+	ABC_DQ0_POS_F_init(&p_vol_dq0);
 	/*TODO:这里配置中断源*/
 	IER |= M_INT3;
 	PieCtrlRegs.PIEIER3.bit.INTx1 = 1;

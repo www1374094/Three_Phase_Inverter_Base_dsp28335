@@ -22,6 +22,6 @@
 #include "TPVSI_DSP28335_BSP.h"
 #include "TPVSI_DSP28335_INT.h"
 #include "TPVSI_DSP28335_SPWM.h"
-#include "TPVSO_DSP28335_Control.h"
+#include "TPVSI_DSP28335_Control.h"
 #endif  // end of DSP28x_PROJECT_H definition
 

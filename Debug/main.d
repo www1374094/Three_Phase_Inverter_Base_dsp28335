@@ -34,6 +34,34 @@ main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/math.h
 main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/linkage.h
 main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/_defs.h
 main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/C28x_FPU_FastRTS.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Control.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h
+main.obj: C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/math.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_POS_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_NEG_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CLARKE_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CNTL_2P2Z_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CNTL_3P3Z_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CNTL_PI_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DLOG_1CH_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DLOG_4CH_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DQ0_ABC_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/iCLARKE_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/iPARK_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MATH_EMAVG_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_I_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MPPT_PNO_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/NOTCH_FLTR_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/PARK_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/PID_GRANDO_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/RAMPGEN_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_wPWR_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h
+main.obj: C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h
 
 ../main.c: 
 C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DSP28x_Project.h: 
@@ -69,3 +97,31 @@ C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/math.h:
 C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/linkage.h: 
 C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/_defs.h: 
 C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/C28x_FPU_FastRTS.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Control.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h: 
+C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include/math.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_POS_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_NEG_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CLARKE_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CNTL_2P2Z_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CNTL_3P3Z_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/CNTL_PI_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DLOG_1CH_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DLOG_4CH_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/DQ0_ABC_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/iCLARKE_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/iPARK_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MATH_EMAVG_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_I_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/MPPT_PNO_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/NOTCH_FLTR_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/PARK_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/PID_GRANDO_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/RAMPGEN_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_wPWR_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h: 
+C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h: 

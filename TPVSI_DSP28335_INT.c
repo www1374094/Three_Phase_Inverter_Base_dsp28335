@@ -6,7 +6,7 @@
  */
 #include "TPVSI_DSP28335_INT.h"
 #include "TPVSI_DSP28335_SPWM.h"
-
+#include "TPVSI_DSP28335_Control.h"
 
 
 
@@ -18,9 +18,7 @@ __interrupt void epwm1_isr(void)
 	EPwm1Regs.CMPA.half.CMPA = _p_epwm1.cmpa_value;
 	EPwm2Regs.CMPA.half.CMPA = _p_epwm1.cmpa_value;
 	EPwm3Regs.CMPA.half.CMPA = _p_epwm1.cmpa_value;
-	//下面两行代码其实没用，先不管
-	EPwm1Regs.CMPB = _p_epwm1.cmpa_value;
-	_p_epwm1.cmpb_value = _p_epwm1.cmpa_value;
+	CON_Sample(&p_vol_sam);
 	/*下面是清除中断标志位，不要修改*/
 	/* Begin*/
 	EPwm1Regs.ETCLR.bit.INT = 1;
