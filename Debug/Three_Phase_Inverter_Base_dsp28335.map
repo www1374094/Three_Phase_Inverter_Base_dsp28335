@@ -1,10 +1,10 @@
 ******************************************************************************
-             TMS320C2000 Linker PC v15.12.1                    
+             TMS320C2000 Linker PC v15.12.3                    
 ******************************************************************************
->> Linked Mon Mar 05 10:42:39 2018
+>> Linked Mon Mar 05 15:30:02 2018
 
 OUTPUT FILE NAME:   <Three_Phase_Inverter_Base_dsp28335.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 00338cbf
+ENTRY POINT SYMBOL: "_c_int00"  address: 00338d64
 
 
 MEMORY CONFIGURATION
@@ -25,7 +25,7 @@ PAGE 0:
   FLASHE                00318000   00008000  00000000  00008000  RWIX
   FLASHD                00320000   00008000  00000004  00007ffc  RWIX
   FLASHC                00328000   00008000  00000000  00008000  RWIX
-  FLASHA                00338000   00007f80  000011c5  00006dbb  RWIX
+  FLASHA                00338000   00007f80  0000126a  00006d16  RWIX
   CSM_RSVD              0033ff80   00000076  00000076  00000000  RWIX
   BEGIN                 0033fff6   00000002  00000002  00000000  RWIX
   CSM_PWL               0033fff8   00000008  00000008  00000000  RWIX
@@ -90,7 +90,7 @@ PAGE 1:
   SCIB                  00007750   00000010  00000010  00000000  RWIX
   SCIC                  00007770   00000010  00000010  00000000  RWIX
   I2CA                  00007900   00000040  00000022  0000001e  RWIX
-  RAML4                 0000c000   00001000  00000060  00000fa0  RWIX
+  RAML4                 0000c000   00001000  00000074  00000f8c  RWIX
   RAML5                 0000d000   00001000  00000000  00001000  RWIX
   RAML6                 0000e000   00001000  00000000  00001000  RWIX
   RAML7                 0000f000   00001000  00000000  00001000  RWIX
@@ -108,50 +108,50 @@ section   page    origin      length       input sections
 ramfuncs   0    00320000    00000004     RUN ADDR = 00008000
                   00320000    00000004     DSP2833x_usDelay.obj (ramfuncs)
 
-.text      0    00338000    000010a6     
+.text      0    00338000    0000114b     
                   00338000    000003e9     DSP2833x_DMA.obj (.text)
                   003383e9    00000316     DSP2833x_DefaultIsr.obj (.text:retain)
                   003386ff    000001d3     TPVSI_DSP28335_BSP.obj (.text)
                   003388d2    00000178     TPVSI_DSP28335_Control.obj (.text)
                   00338a4a    000000f8     DSP2833x_SysCtrl.obj (.text)
-                  00338b42    000000a2     ABC_DQ0_POS_F.obj (.text)
-                  00338be4    0000007f     TPVSI_DSP28335_SPWM.obj (.text)
-                  00338c63    0000005c     TPVSI_DSP28335_INT.obj (.text:retain)
-                  00338cbf    00000056     rts2800_fpu32.lib : boot.obj (.text)
-                  00338d15    00000054     CNTL_3P3Z_F_ASM.obj (.text)
-                  00338d69    0000004f     atan2_f32.obj (.text)
-                  00338db8    0000004a     atan_f32.obj (.text)
-                  00338e02    00000046     rts2800_fpu32.lib : cpy_tbl.obj (.text)
-                  00338e48    00000044     CNTL_2P2Z_F_ASM.obj (.text)
-                  00338e8c    00000043     sincos_f32.obj (.text)
-                  00338ecf    00000039     main.obj (.text)
-                  00338f08    00000034     cos_f32.obj (.text)
-                  00338f3c    00000034     sin_f32.obj (.text)
-                  00338f70    00000029     rts2800_fpu32.lib : exit.obj (.text)
-                  00338f99    00000028     DSP2833x_PieCtrl.obj (.text)
-                  00338fc1    00000021     sqrt_f32.obj (.text)
-                  00338fe2    00000020     DSP2833x_PieVect.obj (.text)
-                  00339002    0000001e     rts2800_fpu32.lib : memcpy.obj (.text)
-                  00339020    0000001c     isqrt_f32.obj (.text)
-                  0033903c    0000001a     rts2800_fpu32.lib : cpy_utils.obj (.text)
-                  00339056    00000019     div_f32.obj (.text)
-                  0033906f    00000019     rts2800_fpu32.lib : args_main.obj (.text)
-                  00339088    00000009                       : _lock.obj (.text)
-                  00339091    00000008     DSP2833x_CodeStartBranch.obj (.text)
-                  00339099    00000007     DSP2833x_DisInt.obj (.text)
-                  003390a0    00000003     DSP2833x_DBGIER.obj (.text)
-                  003390a3    00000002     rts2800_fpu32.lib : pre_init.obj (.text)
-                  003390a5    00000001                       : startup.obj (.text)
+                  00338b42    000000e1     TPVSI_DSP28335_SPWM.obj (.text)
+                  00338c23    000000a2     ABC_DQ0_POS_F.obj (.text)
+                  00338cc5    0000009f     TPVSI_DSP28335_INT.obj (.text:retain)
+                  00338d64    00000056     rts2800_fpu32.lib : boot.obj (.text)
+                  00338dba    00000054     CNTL_3P3Z_F_ASM.obj (.text)
+                  00338e0e    0000004f     atan2_f32.obj (.text)
+                  00338e5d    0000004a     atan_f32.obj (.text)
+                  00338ea7    00000046     rts2800_fpu32.lib : cpy_tbl.obj (.text)
+                  00338eed    00000044     CNTL_2P2Z_F_ASM.obj (.text)
+                  00338f31    00000043     sincos_f32.obj (.text)
+                  00338f74    00000039     main.obj (.text)
+                  00338fad    00000034     cos_f32.obj (.text)
+                  00338fe1    00000034     sin_f32.obj (.text)
+                  00339015    00000029     rts2800_fpu32.lib : exit.obj (.text)
+                  0033903e    00000028     DSP2833x_PieCtrl.obj (.text)
+                  00339066    00000021     sqrt_f32.obj (.text)
+                  00339087    00000020     DSP2833x_PieVect.obj (.text)
+                  003390a7    0000001e     rts2800_fpu32.lib : memcpy.obj (.text)
+                  003390c5    0000001c     isqrt_f32.obj (.text)
+                  003390e1    0000001a     rts2800_fpu32.lib : cpy_utils.obj (.text)
+                  003390fb    00000019     div_f32.obj (.text)
+                  00339114    00000019     rts2800_fpu32.lib : args_main.obj (.text)
+                  0033912d    00000009                       : _lock.obj (.text)
+                  00339136    00000008     DSP2833x_CodeStartBranch.obj (.text)
+                  0033913e    00000007     DSP2833x_DisInt.obj (.text)
+                  00339145    00000003     DSP2833x_DBGIER.obj (.text)
+                  00339148    00000002     rts2800_fpu32.lib : pre_init.obj (.text)
+                  0033914a    00000001                       : startup.obj (.text)
 
-.econst    0    003390a6    00000100     
-                  003390a6    00000100     DSP2833x_PieVect.obj (.econst:_PieVectTableInit)
+.econst    0    0033914c    00000100     
+                  0033914c    00000100     DSP2833x_PieVect.obj (.econst:_PieVectTableInit)
 
-.cinit     0    003391a6    0000001f     
-                  003391a6    0000000e     rts2800_fpu32.lib : exit.obj (.cinit)
-                  003391b4    00000005     TPVSI_DSP28335_SPWM.obj (.cinit)
-                  003391b9    00000005     rts2800_fpu32.lib : _lock.obj (.cinit:__lock)
-                  003391be    00000005                       : _lock.obj (.cinit:__unlock)
-                  003391c3    00000002     --HOLE-- [fill = 0]
+.cinit     0    0033924c    0000001f     
+                  0033924c    0000000e     rts2800_fpu32.lib : exit.obj (.cinit)
+                  0033925a    00000005     TPVSI_DSP28335_SPWM.obj (.cinit)
+                  0033925f    00000005     rts2800_fpu32.lib : _lock.obj (.cinit:__lock)
+                  00339264    00000005                       : _lock.obj (.cinit:__unlock)
+                  00339269    00000002     --HOLE-- [fill = 0]
 
 .pinit     0    00338000    00000000     UNINITIALIZED
 
@@ -173,14 +173,14 @@ FPUmathTables
 .stack     1    00000400    00000300     UNINITIALIZED
                   00000400    00000300     --HOLE--
 
-.ebss      1    0000c000    00000060     UNINITIALIZED
+.ebss      1    0000c000    00000074     UNINITIALIZED
                   0000c000    00000024     TPVSI_DSP28335_Control.obj (.ebss)
                   0000c024    00000018     DSP2833x_CpuTimers.obj (.ebss)
                   0000c03c    00000002     rts2800_fpu32.lib : _lock.obj (.ebss:__lock)
                   0000c03e    00000002                       : _lock.obj (.ebss:__unlock)
-                  0000c040    0000000e     TPVSI_DSP28335_BSP.obj (.ebss)
-                  0000c04e    0000000c     TPVSI_DSP28335_SPWM.obj (.ebss)
-                  0000c05a    00000006     rts2800_fpu32.lib : exit.obj (.ebss)
+                  0000c040    00000020     TPVSI_DSP28335_SPWM.obj (.ebss)
+                  0000c060    0000000e     TPVSI_DSP28335_BSP.obj (.ebss)
+                  0000c06e    00000006     rts2800_fpu32.lib : exit.obj (.ebss)
 
 .reset     0    003fffc0    00000002     DSECT
                   003fffc0    00000002     rts2800_fpu32.lib : boot.obj (.reset)
@@ -397,11 +397,11 @@ MODULE SUMMARY
     .\
        TPVSI_DSP28335_BSP.obj            467    0         14     
        TPVSI_DSP28335_Control.obj        376    0         36     
-       TPVSI_DSP28335_SPWM.obj           127    0         17     
-       TPVSI_DSP28335_INT.obj            92     0         0      
+       TPVSI_DSP28335_SPWM.obj           225    0         37     
+       TPVSI_DSP28335_INT.obj            159    0         0      
        main.obj                          57     0         0      
     +--+---------------------------------+------+---------+---------+
-       Total:                            1119   0         67     
+       Total:                            1284   0         87     
                                                                  
     .\source\
        DSP2833x_GlobalVariableDefs.obj   0      0         2679   
@@ -432,7 +432,7 @@ MODULE SUMMARY
     +--+---------------------------------+------+---------+---------+
        Total:                            2870   0         4781   
                                                                  
-    C:\ti\ccsv6\tools\compiler\ti-cgt-c2000_15.12.1.LTS\lib\rts2800_fpu32.lib
+    E:\ti\ccsv6\tools\compiler\c2000_15.12.3.LTS\lib\rts2800_fpu32.lib
        boot.obj                          86     0         0      
        cpy_tbl.obj                       70     0         0      
        exit.obj                          41     0         20     
@@ -447,7 +447,7 @@ MODULE SUMMARY
                                                                  
        Stack:                            0      0         768    
     +--+---------------------------------+------+---------+---------+
-       Grand Total:                      4279   0         5650   
+       Grand Total:                      4444   0         5670   
 
 
 GLOBAL DATA SYMBOLS: SORTED BY DATA PAGE
@@ -550,14 +550,18 @@ address     data page           name
 0000c03c     300 (0000c000)     __lock
 0000c03e     300 (0000c000)     __unlock
 
-0000c040     301 (0000c040)     _DMA_Buf
-0000c050     301 (0000c040)     __p_sin1
+0000c042     301 (0000c040)     __p_sin3
+0000c046     301 (0000c040)     __p_sin1
+0000c04a     301 (0000c040)     __p_sin2
+0000c04e     301 (0000c040)     __p_epwm3
 0000c054     301 (0000c040)     __p_epwm1
-0000c05a     301 (0000c040)     ___TI_enable_exit_profile_output
-0000c05c     301 (0000c040)     ___TI_cleanup_ptr
-0000c05e     301 (0000c040)     ___TI_dtors_ptr
+0000c05a     301 (0000c040)     __p_epwm2
+0000c060     301 (0000c040)     _DMA_Buf
+0000c06e     301 (0000c040)     ___TI_enable_exit_profile_output
+0000c070     301 (0000c040)     ___TI_cleanup_ptr
+0000c072     301 (0000c040)     ___TI_dtors_ptr
 
-003390a6    ce42 (00339080)     _PieVectTableInit
+0033914c    ce45 (00339140)     _PieVectTableInit
 
 0033fff8    cfff (0033ffc0)     _CsmPwl
 
@@ -581,10 +585,10 @@ GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name
 page  address   name                            
 ----  -------   ----                            
 0     00338000  .text                           
-0     00338f70  C$$EXIT                         
-0     00339056  FS$$DIV                         
-0     00338b66  _ABC_DQ0_POS_F_FUNC             
-0     00338b42  _ABC_DQ0_POS_F_init             
+0     00339015  C$$EXIT                         
+0     003390fb  FS$$DIV                         
+0     00338c47  _ABC_DQ0_POS_F_FUNC             
+0     00338c23  _ABC_DQ0_POS_F_init             
 0     00338931  _ABC_DQ0_POS_Init               
 0     003384cf  _ADCINT_ISR                     
 0     00380080  _ADC_cal                        
@@ -594,8 +598,8 @@ page  address   name
 0     0033876f  _BSP_DMA_Init                   
 0     00338894  _BSP_GPIO_Init                  
 0     003387ad  _BSP_ePWM_Init                  
-0     00338e48  _CNTL_2P2Z_F_ASM                
-0     00338d15  _CNTL_3P3Z_F_ASM                
+0     00338eed  _CNTL_2P2Z_F_ASM                
+0     00338dba  _CNTL_3P3Z_F_ASM                
 0     00338937  _CON_ABC_DQ0_CAL                
 0     00338960  _CON_PID_DeInit                 
 0     0033897f  _CON_PID_Init                   
@@ -649,9 +653,9 @@ page  address   name
 0     00338364  _DMACH6TransferConfig           
 0     00338374  _DMACH6WrapConfig               
 0     00338000  _DMAInitialize                  
-1     0000c040  _DMA_Buf                        
-0     00339099  _DSP28x_DisableInt              
-0     0033909d  _DSP28x_RestoreInt              
+1     0000c060  _DMA_Buf                        
+0     0033913e  _DSP28x_DisableInt              
+0     00339142  _DSP28x_RestoreInt              
 0     00008000  _DSP28x_usDelay                 
 1     00000880  _DevEmuRegs                     
 0     00338a5d  _DisableDog                     
@@ -695,7 +699,7 @@ page  address   name
 0     00338515  _EPWM5_TZINT_ISR                
 0     0033855b  _EPWM6_INT_ISR                  
 0     0033851f  _EPWM6_TZINT_ISR                
-0     00338c55  _EPWM_Structure_Init            
+0     00338bff  _EPWM_Structure_Init            
 1     00006800  _EPwm1Regs                      
 1     00006840  _EPwm2Regs                      
 1     00006880  _EPwm3Regs                      
@@ -706,7 +710,7 @@ page  address   name
 0     003385ab  _EQEP2_INT_ISR                  
 1     00006b00  _EQep1Regs                      
 1     00006b40  _EQep2Regs                      
-0     00338fb8  _EnableInterrupts               
+0     0033905d  _EnableInterrupts               
 0     003ff0de  _FPUatan2HalfPITable            
 0     003ff0e2  _FPUatan2Table                  
 0     003ff268  _FPUatan2TableEnd               
@@ -725,8 +729,8 @@ page  address   name
 0     003383e9  _INT13_ISR                      
 0     003383f3  _INT14_ISR                      
 0     00338ab6  _InitPeripheralClocks           
-0     00338f99  _InitPieCtrl                    
-0     00338fe2  _InitPieVectTable               
+0     0033903e  _InitPieCtrl                    
+0     00339087  _InitPieVectTable               
 0     00338a65  _InitPll                        
 0     00338a4a  _InitSysCtrl                    
 0     003386e1  _LUF_ISR                        
@@ -742,7 +746,7 @@ page  address   name
 1     00380090  _PartIdRegs                     
 1     00000ce0  _PieCtrlRegs                    
 1     00000d00  _PieVectTable                   
-0     003390a6  _PieVectTableInit               
+0     0033914c  _PieVectTableInit               
 0     00338407  _RTOSINT_ISR                    
 abs   00000004  _RamfuncsLoadSize               
 0     00320000  _RamfuncsLoadStart              
@@ -757,13 +761,13 @@ abs   00000004  _RamfuncsLoadSize
 0     003384b1  _SEQ2INT_ISR                    
 0     003385b5  _SPIRXINTA_ISR                  
 0     003385bf  _SPITXINTA_ISR                  
-0     00338c08  _SPWM_DutyValue_Cal             
-0     00338be4  _SPWM_Sin_Cal                   
+0     00338bb2  _SPWM_DutyValue_Cal             
+0     00338b42  _SPWM_Sin_Cal                   
 1     00007050  _SciaRegs                       
 1     00007750  _ScibRegs                       
 1     00007770  _ScicRegs                       
 0     00338a53  _ServiceDog                     
-0     003390a0  _SetDBGIER                      
+0     00339145  _SetDBGIER                      
 1     00007040  _SpiaRegs                       
 0     003380a8  _StartDMACH1                    
 0     0033814d  _StartDMACH2                    
@@ -797,54 +801,58 @@ abs   00000004  _RamfuncsLoadSize
 1     00000b20  _XintfRegs                      
 1     00000700  __STACK_END                     
 abs   00000300  __STACK_SIZE                    
-1     0000c05c  ___TI_cleanup_ptr               
-1     0000c05e  ___TI_dtors_ptr                 
-1     0000c05a  ___TI_enable_exit_profile_output
+1     0000c070  ___TI_cleanup_ptr               
+1     0000c072  ___TI_dtors_ptr                 
+1     0000c06e  ___TI_enable_exit_profile_output
 abs   ffffffff  ___TI_pprof_out_hndl            
 abs   ffffffff  ___TI_prof_data_size            
 abs   ffffffff  ___TI_prof_data_start           
 abs   ffffffff  ___binit__                      
 abs   ffffffff  ___c_args__                     
-0     003391a6  ___cinit__                      
-0     003390a6  ___etext__                      
+0     0033924c  ___cinit__                      
+0     0033914b  ___etext__                      
 abs   ffffffff  ___pinit__                      
 0     00338000  ___text__                       
-0     0033906f  __args_main                     
+0     00339114  __args_main                     
 1     0000c03c  __lock                          
-0     00339090  __nop                           
+0     00339135  __nop                           
 1     0000c054  __p_epwm1                       
-1     0000c050  __p_sin1                        
-0     0033908c  __register_lock                 
-0     00339088  __register_unlock               
+1     0000c05a  __p_epwm2                       
+1     0000c04e  __p_epwm3                       
+1     0000c046  __p_sin1                        
+1     0000c04a  __p_sin2                        
+1     0000c042  __p_sin3                        
+0     00339131  __register_lock                 
+0     0033912d  __register_unlock               
 1     00000400  __stack                         
-0     003390a5  __system_post_cinit             
-0     003390a3  __system_pre_init               
+0     0033914a  __system_post_cinit             
+0     00339148  __system_pre_init               
 1     0000c03e  __unlock                        
-0     00338f70  _abort                          
-0     00338db8  _atan                           
-0     00338d69  _atan2                          
-0     00338cbf  _c_int00                        
-0     00338e02  _copy_in                        
-0     00338f08  _cos                            
-0     0033903c  _ddcopy                         
-0     0033903c  _dpcopy                         
-0     00338c63  _epwm1_isr                      
-0     00338f72  _exit                           
-0     00339020  _isqrt                          
-0     00338ecf  _main                           
-0     00339002  _memcpy                         
+0     00339015  _abort                          
+0     00338e5d  _atan                           
+0     00338e0e  _atan2                          
+0     00338d64  _c_int00                        
+0     00338ea7  _copy_in                        
+0     00338fad  _cos                            
+0     003390e1  _ddcopy                         
+0     003390e1  _dpcopy                         
+0     00338cc5  _epwm1_isr                      
+0     00339017  _exit                           
+0     003390c5  _isqrt                          
+0     00338f74  _main                           
+0     003390a7  _memcpy                         
 1     0000c010  _p_vol_dq0                      
 1     0000c004  _p_vol_sam                      
-0     0033903c  _pdcopy                         
-0     0033903c  _ppcopy                         
+0     003390e1  _pdcopy                         
+0     003390e1  _ppcopy                         
 0     003386f5  _rsvd_ISR                       
-0     00338f3c  _sin                            
-0     00338e8c  _sincos                         
-0     00338fc1  _sqrt                           
+0     00338fe1  _sin                            
+0     00338f31  _sincos                         
+0     00339066  _sqrt                           
 abs   ffffffff  binit                           
-0     003391a6  cinit                           
+0     0033924c  cinit                           
 0     0033fff6  code_start                      
-0     003390a6  etext                           
+0     0033914b  etext                           
 abs   ffffffff  pinit                           
 
 
@@ -990,50 +998,50 @@ page  address   name
 0     00338a65  _InitPll                        
 0     00338ab6  _InitPeripheralClocks           
 0     00338b11  _CsmUnlock                      
-0     00338b42  _ABC_DQ0_POS_F_init             
-0     00338b66  _ABC_DQ0_POS_F_FUNC             
-0     00338be4  _SPWM_Sin_Cal                   
-0     00338c08  _SPWM_DutyValue_Cal             
-0     00338c55  _EPWM_Structure_Init            
-0     00338c63  _epwm1_isr                      
-0     00338cbf  _c_int00                        
-0     00338d15  _CNTL_3P3Z_F_ASM                
-0     00338d69  _atan2                          
-0     00338db8  _atan                           
-0     00338e02  _copy_in                        
-0     00338e48  _CNTL_2P2Z_F_ASM                
-0     00338e8c  _sincos                         
-0     00338ecf  _main                           
-0     00338f08  _cos                            
-0     00338f3c  _sin                            
-0     00338f70  C$$EXIT                         
-0     00338f70  _abort                          
-0     00338f72  _exit                           
-0     00338f99  _InitPieCtrl                    
-0     00338fb8  _EnableInterrupts               
-0     00338fc1  _sqrt                           
-0     00338fe2  _InitPieVectTable               
-0     00339002  _memcpy                         
-0     00339020  _isqrt                          
-0     0033903c  _ddcopy                         
-0     0033903c  _dpcopy                         
-0     0033903c  _pdcopy                         
-0     0033903c  _ppcopy                         
-0     00339056  FS$$DIV                         
-0     0033906f  __args_main                     
-0     00339088  __register_unlock               
-0     0033908c  __register_lock                 
-0     00339090  __nop                           
-0     00339099  _DSP28x_DisableInt              
-0     0033909d  _DSP28x_RestoreInt              
-0     003390a0  _SetDBGIER                      
-0     003390a3  __system_pre_init               
-0     003390a5  __system_post_cinit             
-0     003390a6  _PieVectTableInit               
-0     003390a6  ___etext__                      
-0     003390a6  etext                           
-0     003391a6  ___cinit__                      
-0     003391a6  cinit                           
+0     00338b42  _SPWM_Sin_Cal                   
+0     00338bb2  _SPWM_DutyValue_Cal             
+0     00338bff  _EPWM_Structure_Init            
+0     00338c23  _ABC_DQ0_POS_F_init             
+0     00338c47  _ABC_DQ0_POS_F_FUNC             
+0     00338cc5  _epwm1_isr                      
+0     00338d64  _c_int00                        
+0     00338dba  _CNTL_3P3Z_F_ASM                
+0     00338e0e  _atan2                          
+0     00338e5d  _atan                           
+0     00338ea7  _copy_in                        
+0     00338eed  _CNTL_2P2Z_F_ASM                
+0     00338f31  _sincos                         
+0     00338f74  _main                           
+0     00338fad  _cos                            
+0     00338fe1  _sin                            
+0     00339015  C$$EXIT                         
+0     00339015  _abort                          
+0     00339017  _exit                           
+0     0033903e  _InitPieCtrl                    
+0     0033905d  _EnableInterrupts               
+0     00339066  _sqrt                           
+0     00339087  _InitPieVectTable               
+0     003390a7  _memcpy                         
+0     003390c5  _isqrt                          
+0     003390e1  _ddcopy                         
+0     003390e1  _dpcopy                         
+0     003390e1  _pdcopy                         
+0     003390e1  _ppcopy                         
+0     003390fb  FS$$DIV                         
+0     00339114  __args_main                     
+0     0033912d  __register_unlock               
+0     00339131  __register_lock                 
+0     00339135  __nop                           
+0     0033913e  _DSP28x_DisableInt              
+0     00339142  _DSP28x_RestoreInt              
+0     00339145  _SetDBGIER                      
+0     00339148  __system_pre_init               
+0     0033914a  __system_post_cinit             
+0     0033914b  ___etext__                      
+0     0033914b  etext                           
+0     0033914c  _PieVectTableInit               
+0     0033924c  ___cinit__                      
+0     0033924c  cinit                           
 0     0033fff6  code_start                      
 0     00380080  _ADC_cal                        
 0     003febdc  _FPUsinTable                    
@@ -1100,12 +1108,16 @@ page  address   name
 1     0000c034  _CpuTimer0                      
 1     0000c03c  __lock                          
 1     0000c03e  __unlock                        
-1     0000c040  _DMA_Buf                        
-1     0000c050  __p_sin1                        
+1     0000c042  __p_sin3                        
+1     0000c046  __p_sin1                        
+1     0000c04a  __p_sin2                        
+1     0000c04e  __p_epwm3                       
 1     0000c054  __p_epwm1                       
-1     0000c05a  ___TI_enable_exit_profile_output
-1     0000c05c  ___TI_cleanup_ptr               
-1     0000c05e  ___TI_dtors_ptr                 
+1     0000c05a  __p_epwm2                       
+1     0000c060  _DMA_Buf                        
+1     0000c06e  ___TI_enable_exit_profile_output
+1     0000c070  ___TI_cleanup_ptr               
+1     0000c072  ___TI_dtors_ptr                 
 1     0033fff8  _CsmPwl                         
 1     00380090  _PartIdRegs                     
 abs   00000004  _RamfuncsLoadSize               
@@ -1119,4 +1131,4 @@ abs   ffffffff  ___pinit__
 abs   ffffffff  binit                           
 abs   ffffffff  pinit                           
 
-[266 symbols]
+[270 symbols]

@@ -41,16 +41,16 @@ void CON_Sample_Init(Sample_Stru *p)
  * */
 void CON_Sample(Sample_Stru *p)
 {
-	static Uint16 zero[SAMPLE_NUM];
+	static int zero[SAMPLE_NUM];
 	Uint8 i = 0;
 	/*TODO：在这里定义采样零点偏移量*/
 	zero[0] = 1430;
-	zero[1] = 1430;
+	zero[1] = 1483;
 	zero[2] = 1430;
 	/*下面计算各采样数据*/
 	for(;i<SAMPLE_NUM;i++)
 	{
-		p->data[i] = p->k[i]*(DMA_Buf[i] - zero[i]);
+		p->data[i] = p->k[i]*(float)((int)DMA_Buf[i] - zero[i]);
 	}
 }
 //这个函数之后删除掉

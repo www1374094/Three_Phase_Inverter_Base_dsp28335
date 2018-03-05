@@ -9,15 +9,27 @@
 
 //全局变量定义
 Sin_structure _p_sin1;
+Sin_structure _p_sin2;
+Sin_structure _p_sin3;
 EPWM_structure _p_epwm1;
+EPWM_structure _p_epwm2;
+EPWM_structure _p_epwm3;
 static float angle_step = _CONST_2PI/_CONST_SPWM_TABLE_SIZE;
 
 void SPWM_Sin_Cal(Sin_structure *p)
 {
 	_p_sin1.Angle += (angle_step);
+	_p_sin2.Angle = _p_sin1.Angle + _CONST_2PI/3;
+	if(_p_sin2.Angle>_CONST_2PI)
+		_p_sin2.Angle -= _CONST_2PI;
+	_p_sin3.Angle = _p_sin2.Angle + _CONST_2PI/3;
+	if(_p_sin3.Angle>_CONST_2PI)
+		_p_sin3.Angle -= _CONST_2PI;
 	if(_p_sin1.Angle>_CONST_2PI)
 		_p_sin1.Angle = 0;
 	_p_sin1.sin_value = sin(_p_sin1.Angle);
+	_p_sin2.sin_value = sin(_p_sin2.Angle);
+	_p_sin3.sin_value = sin(_p_sin3.Angle);
 }
 
 void SPWM_DutyValue_Cal(EPWM_structure *ep,float duty,float duty_max,float duty_min)
@@ -40,6 +52,18 @@ void EPWM_Structure_Init(void)
 	_p_epwm1.cmp_min = 0;
 	_p_epwm1.cmpa_value = 1500;
 	_p_epwm1.cmpb_value = 1500;
+	_p_epwm2.fre = 50000;
+	_p_epwm2.bias = 1500;
+	_p_epwm2.cmp_max = 3000;
+	_p_epwm2.cmp_min = 0;
+	_p_epwm2.cmpa_value = 1500;
+	_p_epwm2.cmpb_value = 1500;
+	_p_epwm3.fre = 50000;
+	_p_epwm3.bias = 1500;
+	_p_epwm3.cmp_max = 3000;
+	_p_epwm3.cmp_min = 0;
+	_p_epwm3.cmpa_value = 1500;
+	_p_epwm3.cmpb_value = 1500;
 }
 
 

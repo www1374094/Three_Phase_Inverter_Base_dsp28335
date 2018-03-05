@@ -20,7 +20,7 @@
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v3 USB Debug Probe/C28xx" value="Three_Phase_Inverter_Base_dsp28335"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_PROJECT.Texas Instruments XDS100v3 USB Debug Probe_0/C28xx" value="Three_Phase_Inverter_Base_dsp28335"/>
 <stringAttribute key="com.ti.ccstudio.debug.debugModel.ATTR_TARGET_CONFIG" value="${target_config_active_default:Three_Phase_Inverter_Base_dsp28335}"/>
-<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v3 USB Debug Probe_0/C28xx" value="C:/Users\chen318\workspace_v6_1_3\Three_Phase_Inverter_Base_dsp28335\Debug\Three_Phase_Inverter_Base_dsp28335.out"/>
+<stringAttribute key="com.ti.ccstudio.debug.debugModel.MRU_PROGRAM.Texas Instruments XDS100v3 USB Debug Probe_0/C28xx" value="E:/Code\Three_Phase_Inverter_Base_dsp28335\Debug\Three_Phase_Inverter_Base_dsp28335.out"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/Three_Phase_Inverter_Base_dsp28335"/>
 </listAttribute>

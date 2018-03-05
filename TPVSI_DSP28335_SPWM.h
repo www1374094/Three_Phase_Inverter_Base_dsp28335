@@ -29,8 +29,11 @@ typedef struct{
 } EPWM_structure;
 
 extern Sin_structure _p_sin1;
+extern Sin_structure _p_sin2;
+extern Sin_structure _p_sin3;
 extern EPWM_structure _p_epwm1;
-
+extern EPWM_structure _p_epwm2;
+extern EPWM_structure _p_epwm3;
 void SPWM_Sin_Cal(Sin_structure *p);
 void SPWM_DutyValue_Cal(EPWM_structure *ep,float duty,float duty_max,float duty_min);
 void EPWM_Structure_Init(void);
