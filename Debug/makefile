@@ -4,7 +4,7 @@
 
 SHELL = cmd.exe
 
-CG_TOOL_ROOT := E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS
+CG_TOOL_ROOT := C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -87,8 +87,8 @@ ORDERED_OBJS += \
 "../lib/SFO_TI_Build_fpu.lib" \
 "../lib/Solar_Lib_Float.lib" \
 $(GEN_CMDS__FLAG) \
--l"E:/Code/Three_Phase_Inverter_Base_dsp28335/lib/Solar_Lib_Float.lib" \
--l"E:/Code/Three_Phase_Inverter_Base_dsp28335/lib/rts2800_fpu32_fast_supplement.lib" \
+-l"C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/lib/Solar_Lib_Float.lib" \
+-l"C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/lib/rts2800_fpu32_fast_supplement.lib" \
 -llibc.a \
 
 -include ../makefile.init
@@ -221,13 +221,13 @@ all: Three_Phase_Inverter_Base_dsp28335.out
 Three_Phase_Inverter_Base_dsp28335.out: $(OBJS) $(CMD_SRCS) $(LIB_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: C2000 Linker'
-	"E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --advice:performance=all -g --display_error_number --diag_warning=225 --diag_wrap=off -z -m"Three_Phase_Inverter_Base_dsp28335.map" --stack_size=0x300 --warn_sections -i"E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/lib" -i"E:/Code/Three_Phase_Inverter_Base_dsp28335/lib" -i"E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include" --priority --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Three_Phase_Inverter_Base_dsp28335_linkInfo.xml" --rom_model -o "Three_Phase_Inverter_Base_dsp28335.out" $(ORDERED_OBJS)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/bin/cl2000" -v28 -ml -mt --float_support=fpu32 --advice:performance=all -g --display_error_number --diag_warning=225 --diag_wrap=off -z -m"Three_Phase_Inverter_Base_dsp28335.map" --stack_size=0x300 --warn_sections -i"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/lib" -i"C:/Users/chen318/workspace_v6_1_3/Three_Phase_Inverter_Base_dsp28335/lib" -i"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/include" --priority --reread_libs --diag_wrap=off --display_error_number --xml_link_info="Three_Phase_Inverter_Base_dsp28335_linkInfo.xml" --rom_model -o "Three_Phase_Inverter_Base_dsp28335.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 Three_Phase_Inverter_Base_dsp28335.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: C2000 Hex Utility'
-	"E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/bin/hex2000"  -o "Three_Phase_Inverter_Base_dsp28335.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/ti/ccsv6/tools/compiler/ti-cgt-c2000_15.12.1.LTS/bin/hex2000"  -o "Three_Phase_Inverter_Base_dsp28335.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 

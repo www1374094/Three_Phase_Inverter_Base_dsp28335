@@ -14,15 +14,19 @@ __interrupt void epwm1_isr(void)
 {
 	/*TODO:这里编写中断函数*/
 	SPWM_Sin_Cal(&_p_sin1);
-	SPWM_DutyValue_Cal(&_p_epwm1,0.9*(_p_sin1.sin_value),0.9,-0.9);
+/*	SPWM_DutyValue_Cal(&_p_epwm1,0.9*(_p_sin1.sin_value),0.9,-0.9);
 	SPWM_DutyValue_Cal(&_p_epwm2,0.9*(_p_sin2.sin_value),0.9,-0.9);
-	SPWM_DutyValue_Cal(&_p_epwm3,0.9*(_p_sin3.sin_value),0.9,-0.9);
+	SPWM_DutyValue_Cal(&_p_epwm3,0.9*(_p_sin3.sin_value),0.9,-0.9);*/
+	CON_DQ0_ABC_CAL(0.5,0,0,_p_sin1.Angle,&p_dq0_abc);
+	CON_VOL_CL_ABC_REG(&p_dq0_abc,&_p_epwm1,&_p_epwm2,&_p_epwm3);
 	EPwm1Regs.CMPA.half.CMPA = _p_epwm1.cmpa_value;
 	EPwm2Regs.CMPA.half.CMPA = _p_epwm2.cmpa_value;
 	EPwm3Regs.CMPA.half.CMPA = _p_epwm3.cmpa_value;
 	CON_Sample(&p_vol_sam);
 	CON_ABC_DQ0_CAL(p_vol_sam.data[0],p_vol_sam.data[1],p_vol_sam.data[2],_p_sin1.Angle,&p_vol_dq0);
-	//CON_PUSH_BUFFER(p_vol_sam.data[1]);
+#if _GRAPH_DISPLAY_
+	CON_PUSH_BUFFER(p_vol_sam.data[1]);
+#endif
 	/*下面是清除中断标志位，不要修改*/
 	/* Begin*/
 	EPwm1Regs.ETCLR.bit.INT = 1;

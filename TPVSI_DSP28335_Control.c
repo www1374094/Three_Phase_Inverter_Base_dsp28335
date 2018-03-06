@@ -8,16 +8,19 @@
 
 /*全局变量定义*/
 ABC_DQ0_POS_F p_vol_dq0;
+DQ0_ABC_F p_dq0_abc;
 Sample_Stru p_vol_sam;
-//float display_buffer[512];
 
+
+#if _GRAPH_DISPLAY_
+float display_buffer[512];
 /*
  * FunName:CON_PUSH_BUFFER
  * Description:将采样数据存入显示缓冲区中
  * Input:数据x
  * Output:None
  * */
-/*void CON_PUSH_BUFFER(float x)
+void CON_PUSH_BUFFER(float x)
 {
 	Uint8 i;
 	for(i=1;i<512;i++)
@@ -25,8 +28,8 @@ Sample_Stru p_vol_sam;
 		display_buffer[i] = display_buffer[i-1];
 	}
 	display_buffer[0] = x;
-}*/
-
+}
+#endif
 
 
 /*
@@ -72,12 +75,6 @@ void CON_Sample(Sample_Stru *p)
 		p->data[i] = p->k[i]*(float)((int)DMA_Buf[i] - zero[i]);
 	}
 }
-//这个函数之后删除掉
-void ABC_DQ0_POS_Init(ABC_DQ0_POS_F *abc_dq0_pos1)
-{
-	ABC_DQ0_POS_F_init(abc_dq0_pos1);
-}
-
 
 /*
  * FunName:CON_ABC_DQ0_CAL
@@ -95,6 +92,7 @@ void CON_ABC_DQ0_CAL(float32 a,float32 b,float32 c,float32 theta,ABC_DQ0_POS_F *
 	abc_dq0_pos1->cos = cos(theta);
 	ABC_DQ0_POS_F_FUNC(abc_dq0_pos1);
 }
+
 
 
 /*
@@ -161,6 +159,38 @@ void CON_VOL_CL_PID(PID_Stru *dpid,PID_Stru *qpid,ABC_DQ0_POS_F *abc_dq0_pos1)
 			qpid->output = 1;
 		else if(qpid->output<0)
 			qpid->output = 0;
+}
+
+
+/*
+ * FunName:CON_DQ0_ABC_CAL
+ * Description:dq0->abc的转换，TI ControlSuite。
+ * Input:a,b,c三轴分量,坐标轴夹角theta,abc_dq0结构体指针abc_dq0_pos
+ * Output:None
+ * Others:None
+ * */
+void CON_DQ0_ABC_CAL(float d,float q,float z,float theta,DQ0_ABC_F *p)
+{
+	p->d = d;
+	p->q = q;
+	p->z = z;
+	p->sin = sin(theta);
+	p->cos = cos(theta);
+	DQ0_ABC_F_FUNC(p);
+}
+
+/*
+ * FunName:CON_VOL_CL_DQ0_ABC
+ * Description:将ABC坐标下的占空比数值转化为寄存器值
+ * Input:dq0->abc结构体指针p,三相EPWM结构体指针epa,epb,epc
+ * Output:None
+ * Others:None
+ * */
+void CON_VOL_CL_ABC_REG(DQ0_ABC_F *p,EPWM_structure *epa,EPWM_structure *epb,EPWM_structure *epc)
+{
+	SPWM_DutyValue_Cal(epa,p->a,0.9,-0.9);
+	SPWM_DutyValue_Cal(epb,p->b,0.9,-0.9);
+	SPWM_DutyValue_Cal(epc,p->c,0.9,-0.9);
 }
 
 

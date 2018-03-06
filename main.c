@@ -40,6 +40,7 @@ int main(void)
 	EPWM_Structure_Init();
 	CON_Sample_Init(&p_vol_sam);
 	ABC_DQ0_POS_F_init(&p_vol_dq0);
+	DQ0_ABC_F_init(&p_dq0_abc);
 	/*TODO:这里配置中断源*/
 	IER |= M_INT3;
 	PieCtrlRegs.PIEIER3.bit.INTx1 = 1;
