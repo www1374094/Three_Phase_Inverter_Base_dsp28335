@@ -19,12 +19,12 @@ static float angle_step = _CONST_2PI/_CONST_SPWM_TABLE_SIZE;
 void SPWM_Sin_Cal(Sin_structure *p)
 {
 	_p_sin1.Angle += (angle_step);
-	_p_sin2.Angle = _p_sin1.Angle + _CONST_2PI/3;
-	if(_p_sin2.Angle>_CONST_2PI)
-		_p_sin2.Angle -= _CONST_2PI;
-	_p_sin3.Angle = _p_sin2.Angle + _CONST_2PI/3;
-	if(_p_sin3.Angle>_CONST_2PI)
-		_p_sin3.Angle -= _CONST_2PI;
+	_p_sin2.Angle = _p_sin1.Angle - _CONST_2PI/3;
+	if(_p_sin2.Angle<0)
+		_p_sin2.Angle += _CONST_2PI;
+	_p_sin3.Angle = _p_sin2.Angle - _CONST_2PI/3;
+	if(_p_sin3.Angle<0)
+		_p_sin3.Angle += _CONST_2PI;
 	if(_p_sin1.Angle>_CONST_2PI)
 		_p_sin1.Angle = 0;
 	_p_sin1.sin_value = sin(_p_sin1.Angle);

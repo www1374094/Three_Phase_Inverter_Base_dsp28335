@@ -22,6 +22,7 @@ __interrupt void epwm1_isr(void)
 	EPwm3Regs.CMPA.half.CMPA = _p_epwm3.cmpa_value;
 	CON_Sample(&p_vol_sam);
 	CON_ABC_DQ0_CAL(p_vol_sam.data[0],p_vol_sam.data[1],p_vol_sam.data[2],_p_sin1.Angle,&p_vol_dq0);
+	//CON_PUSH_BUFFER(p_vol_sam.data[1]);
 	/*下面是清除中断标志位，不要修改*/
 	/* Begin*/
 	EPwm1Regs.ETCLR.bit.INT = 1;

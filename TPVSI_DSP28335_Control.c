@@ -9,6 +9,25 @@
 /*全局变量定义*/
 ABC_DQ0_POS_F p_vol_dq0;
 Sample_Stru p_vol_sam;
+//float display_buffer[512];
+
+/*
+ * FunName:CON_PUSH_BUFFER
+ * Description:将采样数据存入显示缓冲区中
+ * Input:数据x
+ * Output:None
+ * */
+/*void CON_PUSH_BUFFER(float x)
+{
+	Uint8 i;
+	for(i=1;i<512;i++)
+	{
+		display_buffer[i] = display_buffer[i-1];
+	}
+	display_buffer[0] = x;
+}*/
+
+
 
 /*
  * FunName:CON_Sample_Init
@@ -20,9 +39,9 @@ void CON_Sample_Init(Sample_Stru *p)
 {
 	Uint8 i;
 	/*TODO:在这里定义采样的系数*/
-	p->k[0] = 0.10355509;
-	p->k[1] = 0.10355509;
-	p->k[2] = 0.10355509;
+	p->k[0] = 1.8124e-2;
+	p->k[1] = 1.8124e-2;
+	p->k[2] = 1.8124e-2;
 	/*下面初始化数据数组*/
 	for(i=0;i<SAMPLE_NUM;i++)
 	{
