@@ -11,6 +11,11 @@ ABC_DQ0_POS_F p_vol_dq0;
 DQ0_ABC_F p_dq0_abc;
 Sample_Stru p_vol_sam;
 
+#pragma CODE_SECTION(CON_Sample,"ramfuncs");
+#pragma CODE_SECTION(CON_ABC_DQ0_CAL,"ramfuncs");
+#pragma CODE_SECTION(CON_DQ0_ABC_CAL,"ramfuncs");
+#pragma CODE_SECTION(CON_VOL_CL_ABC_REG,"ramfuncs");
+
 
 #if _GRAPH_DISPLAY_
 float display_buffer[512];

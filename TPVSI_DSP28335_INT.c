@@ -8,16 +8,16 @@
 #include "TPVSI_DSP28335_SPWM.h"
 #include "TPVSI_DSP28335_Control.h"
 
-
+#pragma CODE_SECTION(epwm1_isr,"ramfuncs");
 
 __interrupt void epwm1_isr(void)
 {
 	/*TODO:这里编写中断函数*/
-	SPWM_Sin_Cal(&_p_sin1);
-/*	SPWM_DutyValue_Cal(&_p_epwm1,0.9*(_p_sin1.sin_value),0.9,-0.9);
-	SPWM_DutyValue_Cal(&_p_epwm2,0.9*(_p_sin2.sin_value),0.9,-0.9);
-	SPWM_DutyValue_Cal(&_p_epwm3,0.9*(_p_sin3.sin_value),0.9,-0.9);*/
-	CON_DQ0_ABC_CAL(0.5,0,0,_p_sin1.Angle,&p_dq0_abc);
+	GpioDataRegs.GPBSET.bit.GPIO60 = 1;
+	_p_sin1.Angle += 0.0251327;
+	if(_p_sin1.Angle>_CONST_2PI)
+		_p_sin1.Angle = 0;
+	CON_DQ0_ABC_CAL(0.9,0,0,_p_sin1.Angle,&p_dq0_abc);
 	CON_VOL_CL_ABC_REG(&p_dq0_abc,&_p_epwm1,&_p_epwm2,&_p_epwm3);
 	EPwm1Regs.CMPA.half.CMPA = _p_epwm1.cmpa_value;
 	EPwm2Regs.CMPA.half.CMPA = _p_epwm2.cmpa_value;
@@ -27,6 +27,7 @@ __interrupt void epwm1_isr(void)
 #if _GRAPH_DISPLAY_
 	CON_PUSH_BUFFER(p_vol_sam.data[1]);
 #endif
+	GpioDataRegs.GPBCLEAR.bit.GPIO60 = 1;
 	/*下面是清除中断标志位，不要修改*/
 	/* Begin*/
 	EPwm1Regs.ETCLR.bit.INT = 1;

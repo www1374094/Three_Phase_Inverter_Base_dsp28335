@@ -11,8 +11,8 @@
 #include <math.h>
 #include "C28x_FPU_FastRTS.h"
 
-#define _CONST_2PI 6.283
-#define _CONST_SPWM_TABLE_SIZE 1000
+#define _CONST_2PI 6.2831853
+#define _CONST_SPWM_TABLE_SIZE 500
 
 typedef struct{
   float Angle;

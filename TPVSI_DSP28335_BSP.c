@@ -102,11 +102,11 @@ void BSP_ePWM_Init(void)
 	EDIS;
 	//EPWM1
 	EPwm1Regs.TBCTL.bit.FREE_SOFT = 0x00;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
-	EPwm1Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
+	EPwm1Regs.TBCTL.bit.CLKDIV = 0x2;//不分频
 	EPwm1Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
 	EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_CTR_ZERO;//各EPWM模块与EPWM1同步
 	EPwm1Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
-	EPwm1Regs.TBPRD = 3000;//150MHz/3000=50KHzPWM
+	EPwm1Regs.TBPRD = 3000;//37.5MHz/3000=12.5KHzPWM
 	EPwm1Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
 	EPwm1Regs.CMPB = 1500;
 	//各寄存器都工作在影子寄存器模式
@@ -126,12 +126,12 @@ void BSP_ePWM_Init(void)
 	EPwm1Regs.DBRED = 30;
 	//EPWM2
 	EPwm2Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
-	EPwm2Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
+	EPwm2Regs.TBCTL.bit.CLKDIV = 0x2;//不分频
 	EPwm2Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
 	EPwm2Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
 	EPwm2Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
 	EPwm2Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
-	EPwm2Regs.TBPRD = 3000;//150MHz/3000=50KHzPWM
+	EPwm2Regs.TBPRD = 3000;//37.5MHz/3000=12.5KHzPWM
 	EPwm2Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
 	EPwm2Regs.CMPB = 1500;
 	//各寄存器都工作在影子寄存器模式
@@ -151,11 +151,11 @@ void BSP_ePWM_Init(void)
 	EPwm2Regs.DBRED = 30;
 	//EPWM3
 	EPwm3Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
-	EPwm3Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
+	EPwm3Regs.TBCTL.bit.CLKDIV = 0x2;//不分频
 	EPwm3Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
 	EPwm3Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
 	EPwm3Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
-	EPwm3Regs.TBPRD = 3000;//150MHz/3000=50KHzPWM
+	EPwm3Regs.TBPRD = 3000;//37.5MHz/3000=12.5KHzPWM
 	EPwm3Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
 	EPwm3Regs.CMPB = 1500;
 	//各寄存器都工作在影子寄存器模式
@@ -213,6 +213,9 @@ void BSP_GPIO_Init(void)
 	GpioCtrlRegs.GPBMUX2.bit.GPIO59 = 0x00;
 	GpioCtrlRegs.GPBDIR.bit.GPIO59 = 0x01;
 	GpioDataRegs.GPBSET.bit.GPIO59 = 0x00;
+	GpioCtrlRegs.GPBMUX2.bit.GPIO60 = 0x00;
+	GpioCtrlRegs.GPBDIR.bit.GPIO60 = 0x01;
+	GpioDataRegs.GPBSET.bit.GPIO60 = 0x00;
 	//GpioDataRegs.GPACLEAR.bit.GPIO24 = 0x01;
 	EDIS;
 }
