@@ -27,14 +27,12 @@ TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/D
 TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_Dma_defines.h
 TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_I2c_defines.h
 TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h
-TPVSI_DSP28335_Control.obj: ../TPVSI_DSP28335_BSP.h
-TPVSI_DSP28335_Control.obj: ../TPVSI_DSP28335_SPWM.h
+TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_BSP.h
+TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h
+TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h
 TPVSI_DSP28335_Control.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h
 TPVSI_DSP28335_Control.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h
 TPVSI_DSP28335_Control.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/_defs.h
-TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/C28x_FPU_FastRTS.h
-TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h
-TPVSI_DSP28335_Control.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h
 TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_POS_F.h
 TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_NEG_F.h
 TPVSI_DSP28335_Control.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CLARKE_F.h
@@ -88,14 +86,12 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_EPwm_defines.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_Dma_defines.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_I2c_defines.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h: 
-../TPVSI_DSP28335_BSP.h: 
-../TPVSI_DSP28335_SPWM.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_BSP.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/_defs.h: 
-E:/Code/Three_Phase_Inverter_Base_dsp28335/include/C28x_FPU_FastRTS.h: 
-E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h: 
-E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_POS_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_NEG_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CLARKE_F.h: 

@@ -32,12 +32,9 @@ int main(void)
 	EALLOW;
 	PieVectTable.EPWM1_INT = &epwm1_isr;
 	EDIS;
-	/*TODO:这里初始化外设*/
-	BSP_ADC_Init();
-	BSP_ePWM_Init();
-	BSP_DMA_Init();
+	/*TODO:这里初始化硬件抽象层*/
+	HAL_Init();
 	/*TODO:这里初始化一些结构体之类的东西*/
-	EPWM_Structure_Init();
 	CON_Sample_Init(&p_vol_sam);
 	ABC_DQ0_POS_F_init(&p_vol_dq0);
 	DQ0_ABC_F_init(&p_dq0_abc);

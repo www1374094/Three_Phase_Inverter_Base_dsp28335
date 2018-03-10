@@ -11,13 +11,13 @@
 #include "DSP2833x_Device.h"
 #include "DSP2833x_Examples.h"
 #include "TPVSI_DSP28335_BSP.h"
-#include "TPVSI_DSP28335_SPWM.h"
+#include "TPVSI_DSP28335_HAL.h"
 #include "Solar_F.h"
 
 /*调试功能宏定义*/
 #define _GRAPH_DISPLAY_ 0//设置为1以使用GRAPH观察数据
 
-#define SAMPLE_NUM 3
+#define SAMPLE_NUM 6
 typedef struct{
 	float data[SAMPLE_NUM];//数据
 	float k[SAMPLE_NUM];//ADC转换的比例系数
@@ -32,6 +32,18 @@ typedef struct{
 	float err_last;
 	float output_last;
 }PID_Stru;
+
+typedef enum{
+	VoltageA = 0,
+	VoltageB,
+	VoltageC,
+	CurrentA,
+	CurrentB,
+	CurrentC,
+}Sample_Index;
+
+
+
 
 
 extern ABC_DQ0_POS_F p_vol_dq0;

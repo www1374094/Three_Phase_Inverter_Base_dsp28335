@@ -47,9 +47,12 @@ void CON_Sample_Init(Sample_Stru *p)
 {
 	Uint8 i;
 	/*TODO:在这里定义采样的系数*/
-	p->k[0] = 1.8124e-2;
-	p->k[1] = 1.8124e-2;
-	p->k[2] = 1.8124e-2;
+	p->k[0] = 0.0362;
+	p->k[1] = 0.0362;
+	p->k[2] = 0.0362;
+	p->k[3] = 0.014066;
+	p->k[4] = 0.014066;
+	p->k[5] = 0.014066;
 	/*下面初始化数据数组*/
 	for(i=0;i<SAMPLE_NUM;i++)
 	{
@@ -71,9 +74,12 @@ void CON_Sample(Sample_Stru *p)
 	static int zero[SAMPLE_NUM];
 	Uint8 i = 0;
 	/*TODO：在这里定义采样零点偏移量*/
-	zero[0] = 1430;
+	zero[0] = 1430;//1566，1567，1539
 	zero[1] = 1483;
 	zero[2] = 1430;
+	zero[3] = 1566;
+	zero[4] = 1567;
+	zero[5] = 1567;
 	/*下面计算各采样数据*/
 	for(;i<SAMPLE_NUM;i++)
 	{
@@ -193,9 +199,9 @@ void CON_DQ0_ABC_CAL(float d,float q,float z,float theta,DQ0_ABC_F *p)
  * */
 void CON_VOL_CL_ABC_REG(DQ0_ABC_F *p,EPWM_structure *epa,EPWM_structure *epb,EPWM_structure *epc)
 {
-	SPWM_DutyValue_Cal(epa,p->a,0.9,-0.9);
-	SPWM_DutyValue_Cal(epb,p->b,0.9,-0.9);
-	SPWM_DutyValue_Cal(epc,p->c,0.9,-0.9);
+	HAL_PWM_DutyValue_Cal(epa,p->a,0.9,-0.9);
+	HAL_PWM_DutyValue_Cal(epb,p->b,0.9,-0.9);
+	HAL_PWM_DutyValue_Cal(epc,p->c,0.9,-0.9);
 }
 
 
