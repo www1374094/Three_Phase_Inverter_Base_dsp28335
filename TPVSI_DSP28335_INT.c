@@ -22,7 +22,7 @@ __interrupt void epwm1_isr(void)
 	EPwm1Regs.CMPA.half.CMPA = _p_epwm1.cmpa_value;
 	EPwm2Regs.CMPA.half.CMPA = _p_epwm2.cmpa_value;
 	EPwm3Regs.CMPA.half.CMPA = _p_epwm3.cmpa_value;
-	CON_Sample(&p_vol_sam);
+	HAL_Sample(&p_vol_sam);
 	CON_ABC_DQ0_CAL(p_vol_sam.data[CurrentA],p_vol_sam.data[CurrentB],p_vol_sam.data[CurrentC],_p_sin1.Angle,&p_vol_dq0);
 #if _GRAPH_DISPLAY_
 	CON_PUSH_BUFFER(p_vol_sam.data[1]);

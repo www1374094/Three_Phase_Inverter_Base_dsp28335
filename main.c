@@ -35,7 +35,7 @@ int main(void)
 	/*TODO:这里初始化硬件抽象层*/
 	HAL_Init();
 	/*TODO:这里初始化一些结构体之类的东西*/
-	CON_Sample_Init(&p_vol_sam);
+	HAL_Sample_Init(&p_vol_sam);
 	ABC_DQ0_POS_F_init(&p_vol_dq0);
 	DQ0_ABC_F_init(&p_dq0_abc);
 	/*TODO:这里配置中断源*/

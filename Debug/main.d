@@ -30,7 +30,6 @@ main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_BSP.h
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_INT.h
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h
-main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Control.h
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h
 main.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h
 main.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h
@@ -60,6 +59,7 @@ main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h
 main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h
+main.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Control.h
 
 ../main.c: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP28x_Project.h: 
@@ -91,7 +91,6 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_BSP.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_INT.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h: 
-E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Control.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h: 
@@ -121,3 +120,4 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Control.h: 

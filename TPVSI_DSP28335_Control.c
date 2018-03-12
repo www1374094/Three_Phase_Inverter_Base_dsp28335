@@ -9,9 +9,9 @@
 /*全局变量定义*/
 ABC_DQ0_POS_F p_vol_dq0;
 DQ0_ABC_F p_dq0_abc;
-Sample_Stru p_vol_sam;
 
-#pragma CODE_SECTION(CON_Sample,"ramfuncs");
+
+
 #pragma CODE_SECTION(CON_ABC_DQ0_CAL,"ramfuncs");
 #pragma CODE_SECTION(CON_DQ0_ABC_CAL,"ramfuncs");
 #pragma CODE_SECTION(CON_VOL_CL_ABC_REG,"ramfuncs");
@@ -37,55 +37,6 @@ void CON_PUSH_BUFFER(float x)
 #endif
 
 
-/*
- * FunName:CON_Sample_Init
- * Description:初始化采样结构体，系数k数组代表了采样数据到真实数据转换的系数，这个数组的初始化应随采样数据的多少而定
- * Input:采样结构体指针p
- * Output:None
- * */
-void CON_Sample_Init(Sample_Stru *p)
-{
-	Uint8 i;
-	/*TODO:在这里定义采样的系数*/
-	p->k[0] = 0.0362;
-	p->k[1] = 0.0362;
-	p->k[2] = 0.0362;
-	p->k[3] = 0.014066;
-	p->k[4] = 0.014066;
-	p->k[5] = 0.014066;
-	/*下面初始化数据数组*/
-	for(i=0;i<SAMPLE_NUM;i++)
-	{
-		p->data[i] = 0;
-	}
-}
-
-
-/*
- * FunName:CON_Sample
- * Description:对采样数据进行处理，源数据来自DMA缓冲区数组DMA_Buf，
- * 			   DMA_Buf是一个全局变量，定义在TPVSI_DSP28335_BSP.c中
- * Input:采样结构体指针p
- * Output:None
- * Others:None
- * */
-void CON_Sample(Sample_Stru *p)
-{
-	static int zero[SAMPLE_NUM];
-	Uint8 i = 0;
-	/*TODO：在这里定义采样零点偏移量*/
-	zero[0] = 1430;//1566，1567，1539
-	zero[1] = 1483;
-	zero[2] = 1430;
-	zero[3] = 1566;
-	zero[4] = 1567;
-	zero[5] = 1567;
-	/*下面计算各采样数据*/
-	for(;i<SAMPLE_NUM;i++)
-	{
-		p->data[i] = p->k[i]*(float)((int)DMA_Buf[i] - zero[i]);
-	}
-}
 
 /*
  * FunName:CON_ABC_DQ0_CAL

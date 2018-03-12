@@ -29,7 +29,6 @@ TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP28
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_BSP.h
-TPVSI_DSP28335_INT.obj: ../TPVSI_DSP28335_Control.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h
 TPVSI_DSP28335_INT.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h
 TPVSI_DSP28335_INT.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h
@@ -59,6 +58,7 @@ TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h
+TPVSI_DSP28335_INT.obj: ../TPVSI_DSP28335_Control.h
 
 ../TPVSI_DSP28335_INT.c: 
 ../TPVSI_DSP28335_INT.h: 
@@ -89,7 +89,6 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_I2c_defines.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_BSP.h: 
-../TPVSI_DSP28335_Control.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h: 
 E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h: 
@@ -119,3 +118,4 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h: 
+../TPVSI_DSP28335_Control.h: 

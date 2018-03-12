@@ -28,6 +28,35 @@ HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/D
 HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_Dma_defines.h
 HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_I2c_defines.h
 HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/_defs.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_POS_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_NEG_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CLARKE_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CNTL_2P2Z_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CNTL_3P3Z_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CNTL_PI_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DLOG_1CH_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DLOG_4CH_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DQ0_ABC_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/iCLARKE_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/iPARK_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MATH_EMAVG_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_I_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MPPT_PNO_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/NOTCH_FLTR_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/PARK_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/PID_GRANDO_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/RAMPGEN_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_wPWR_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h
+HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h
 HAL/TPVSI_DSP28335_HAL.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/C28x_FPU_FastRTS.h
 
 ../HAL/TPVSI_DSP28335_HAL.c: 
@@ -58,4 +87,33 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_EPwm_defines.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_Dma_defines.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_I2c_defines.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DSP2833x_DefaultIsr.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/Solar_F.h: 
+E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/math.h: 
+E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/linkage.h: 
+E:/ti/ccsv6/tools/compiler/c2000_15.12.3.LTS/include/_defs.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_POS_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/ABC_DQ0_NEG_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CLARKE_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CNTL_2P2Z_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CNTL_3P3Z_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/CNTL_PI_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DLOG_1CH_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DLOG_4CH_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/DQ0_ABC_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/iCLARKE_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/iPARK_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MATH_EMAVG_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MPPT_INCC_I_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/MPPT_PNO_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/NOTCH_FLTR_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/PARK_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/PID_GRANDO_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/RAMPGEN_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SINEANALYZER_DIFF_wPWR_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/C28x_FPU_FastRTS.h: 
