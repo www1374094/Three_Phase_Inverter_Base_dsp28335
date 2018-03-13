@@ -13,8 +13,8 @@ DQ0_ABC_F p_dq0_abc;
 
 
 #pragma CODE_SECTION(CON_ABC_DQ0_CAL,"ramfuncs");
-#pragma CODE_SECTION(CON_DQ0_ABC_CAL,"ramfuncs");
-#pragma CODE_SECTION(CON_VOL_CL_ABC_REG,"ramfuncs");
+//#pragma CODE_SECTION(CON_DQ0_ABC_CAL,"ramfuncs");
+//#pragma CODE_SECTION(CON_VOL_CL_ABC_REG,"ramfuncs");
 
 
 #if _GRAPH_DISPLAY_
@@ -52,7 +52,7 @@ void CON_ABC_DQ0_CAL(float32 a,float32 b,float32 c,float32 theta,ABC_DQ0_POS_F *
 	abc_dq0_pos1->c = c;
 	abc_dq0_pos1->sin = sin(theta);
 	abc_dq0_pos1->cos = cos(theta);
-	ABC_DQ0_POS_F_FUNC(abc_dq0_pos1);
+	ABC_DQ0_POS_F_MACRO((*abc_dq0_pos1));
 }
 
 
@@ -138,7 +138,7 @@ void CON_DQ0_ABC_CAL(float d,float q,float z,float theta,DQ0_ABC_F *p)
 	p->z = z;
 	p->sin = sin(theta);
 	p->cos = cos(theta);
-	DQ0_ABC_F_FUNC(p);
+	DQ0_ABC_F_MACRO((*p));
 }
 
 /*
@@ -148,7 +148,7 @@ void CON_DQ0_ABC_CAL(float d,float q,float z,float theta,DQ0_ABC_F *p)
  * Output:None
  * Others:None
  * */
-void CON_VOL_CL_ABC_REG(DQ0_ABC_F *p,EPWM_structure *epa,EPWM_structure *epb,EPWM_structure *epc)
+void CON_VOL_CL_ABC_REG(DQ0_ABC_F *p,EPWM_Structure *epa,EPWM_Structure *epb,EPWM_Structure *epc)
 {
 	HAL_PWM_DutyValue_Cal(epa,p->a,0.9,-0.9);
 	HAL_PWM_DutyValue_Cal(epb,p->b,0.9,-0.9);

@@ -37,6 +37,7 @@
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.FLOAT_SUPPORT.1246135239" name="Specify floating point support (--float_support)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.FLOAT_SUPPORT" value="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.FLOAT_SUPPORT.fpu32" valueType="enumerated"/>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.INCLUDE_PATH.1904968714" name="Add dir to #include search path (--include_path, -I)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.INCLUDE_PATH" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${CG_TOOL_ROOT}/include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/AAL}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/HAL}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
@@ -48,7 +49,8 @@
 									<listOptionValue builtIn="false" value="225"/>
 								</option>
 								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.DIAG_WRAP.2012403555" name="Wrap diagnostic messages (--diag_wrap)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.DIAG_WRAP" value="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.DIAG_WRAP.off" valueType="enumerated"/>
-								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PREINCLUDE.1097286771" name="Specify a preinclude file (--preinclude)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PREINCLUDE" valueType="stringList"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PREINCLUDE.1097286771" name="Specify a preinclude file (--preinclude)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.PREINCLUDE"/>
+								<option id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.OPT_LEVEL.1514336415" name="Optimization level (--opt_level, -O)" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.OPT_LEVEL" value="com.ti.ccstudio.buildDefinitions.C2000_15.12.compilerID.OPT_LEVEL.0" valueType="enumerated"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__C_SRCS.66571662" name="C Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__C_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__CPP_SRCS.703702316" name="C++ Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__CPP_SRCS"/>
 								<inputType id="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__ASM_SRCS.573802695" name="Assembly Sources" superClass="com.ti.ccstudio.buildDefinitions.C2000_15.12.compiler.inputType__ASM_SRCS"/>
@@ -80,7 +82,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="cmd/F28335.cmd|28335_RAM_lnk.cmd|28335_fastRTS_lnk.cmd|gel|source/DSP2833x_SWPrioritizedPieVect.c|source/DSP2833x_SWPrioritizedDefaultIsr.c|cmd/DSP2833x_Headers_BIOS.cmd|cmd/28335_RAM_lnk.cmd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="TPVSI_DSP28335_Control.c|cmd/F28335.cmd|28335_RAM_lnk.cmd|28335_fastRTS_lnk.cmd|gel|source/DSP2833x_SWPrioritizedPieVect.c|source/DSP2833x_SWPrioritizedDefaultIsr.c|cmd/DSP2833x_Headers_BIOS.cmd|cmd/28335_RAM_lnk.cmd" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

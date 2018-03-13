@@ -58,7 +58,9 @@ TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h
 TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h
-TPVSI_DSP28335_INT.obj: ../TPVSI_DSP28335_Control.h
+TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/AAL/TPVSI_DSP28335_AAL_Trans.h
+TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h
+TPVSI_DSP28335_INT.obj: E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Structure_Define.h
 
 ../TPVSI_DSP28335_INT.c: 
 ../TPVSI_DSP28335_INT.h: 
@@ -118,4 +120,6 @@ E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_F.h:
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_1ph_SOGI_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_DDSRF_F.h: 
 E:/Code/Three_Phase_Inverter_Base_dsp28335/include/SPLL_3PH_SRF_F.h: 
-../TPVSI_DSP28335_Control.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/AAL/TPVSI_DSP28335_AAL_Trans.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/HAL/TPVSI_DSP28335_HAL.h: 
+E:/Code/Three_Phase_Inverter_Base_dsp28335/TPVSI_DSP28335_Structure_Define.h: 

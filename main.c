@@ -17,8 +17,6 @@ int main(void)
 	memcpy((Uint16 *)&RamfuncsRunStart,(Uint16 *)&RamfuncsLoadStart, (unsigned long)&RamfuncsLoadSize);
 	InitSysCtrl();
 	DINT;
-	/*TODO:这里设置GPIO*/
-	BSP_GPIO_Init();
 	/*下面不要修改*/
 	/*Begin*/
 	//中断设置
@@ -32,12 +30,9 @@ int main(void)
 	EALLOW;
 	PieVectTable.EPWM1_INT = &epwm1_isr;
 	EDIS;
-	/*TODO:这里初始化硬件抽象层*/
+	/*TODO:这里初始化硬件抽象层和算法抽象层*/
 	HAL_Init();
-	/*TODO:这里初始化一些结构体之类的东西*/
-	HAL_Sample_Init(&p_vol_sam);
-	ABC_DQ0_POS_F_init(&p_vol_dq0);
-	DQ0_ABC_F_init(&p_dq0_abc);
+	AAL_Trans_Init();
 	/*TODO:这里配置中断源*/
 	IER |= M_INT3;
 	PieCtrlRegs.PIEIER3.bit.INTx1 = 1;

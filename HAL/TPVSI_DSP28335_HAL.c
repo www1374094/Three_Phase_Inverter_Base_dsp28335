@@ -6,17 +6,19 @@
  */
 #include "TPVSI_DSP28335_HAL.h"
 #include "C28x_FPU_FastRTS.h"
-EPWM_structure _p_epwm1;
-EPWM_structure _p_epwm2;
-EPWM_structure _p_epwm3;
-Sin_structure _p_sin1;
-Sample_structure p_vol_sam;
+EPWM_Structure _p_epwm1;
+EPWM_Structure _p_epwm2;
+EPWM_Structure _p_epwm3;
+Sin_Structure _p_sin1;
+Sample_Structure p_sam;
 
 #pragma CODE_SECTION(HAL_Sample,"ramfuncs");
 
 void HAL_Init(void)
 {
 	HAL_EPWM_Structure_Init();
+	HAL_Sample_Init(&p_sam);
+	BSP_GPIO_Init();
 	BSP_ADC_Init();
 	BSP_ePWM_Init();
 	BSP_DMA_Init();
@@ -45,7 +47,7 @@ void HAL_EPWM_Structure_Init(void)
 }
 
 
-void HAL_PWM_DutyValue_Cal(EPWM_structure *ep,float duty,float duty_max,float duty_min)
+void HAL_PWM_DutyValue_Cal(EPWM_Structure *ep,float duty,float duty_max,float duty_min)
 {
 	Uint16 temp;
 	if(duty>duty_max) duty = duty_max;
@@ -62,7 +64,7 @@ void HAL_PWM_DutyValue_Cal(EPWM_structure *ep,float duty,float duty_max,float du
  * Input:采样结构体指针p
  * Output:None
  * */
-void HAL_Sample_Init(Sample_structure *p)
+void HAL_Sample_Init(Sample_Structure *p)
 {
 	Uint8 i;
 	/*TODO:在这里定义采样的系数*/
@@ -79,6 +81,8 @@ void HAL_Sample_Init(Sample_structure *p)
 	}
 }
 
+#pragma CODE_SECTION(HAL_Sample,"ramfuncs");
+#pragma CODE_SECTION(HAL_DutySet,"ramfuncs");
 /*
  * FunName:HAL_Sample
  * Description:对采样数据进行处理，源数据来自DMA缓冲区数组DMA_Buf，
@@ -87,7 +91,7 @@ void HAL_Sample_Init(Sample_structure *p)
  * Output:None
  * Others:None
  * */
-void HAL_Sample(Sample_structure *p)
+void HAL_Sample(Sample_Structure *p)
 {
 	static int zero[SAMPLE_NUM];
 	Uint8 i = 0;
@@ -103,4 +107,36 @@ void HAL_Sample(Sample_structure *p)
 	{
 		p->data[i] = p->k[i]*(float)((int)DMA_Buf[i] - zero[i]);
 	}
+}
+
+
+
+/*
+ * FunName:HAL_DutySet
+ * Description:输出由控制变量结构体指定的占空比
+ * Input:控制变量结构体指针p，EPWM模块结构体指针epa,epb,epc
+ * Output:None
+ * Others:None
+ * */
+void HAL_DutySet(ThreePhase_Data_Structure *p,EPWM_Structure *epa,EPWM_Structure *epb,EPWM_Structure *epc)
+{
+	HAL_PWM_DutyValue_Cal(epa,p->abc_data[index_a],0.9,-0.9);
+	HAL_PWM_DutyValue_Cal(epb,p->abc_data[index_b],0.9,-0.9);
+	HAL_PWM_DutyValue_Cal(epc,p->abc_data[index_c],0.9,-0.9);
+	EPwm1Regs.CMPA.half.CMPA = epa->cmpa_value;
+	EPwm2Regs.CMPA.half.CMPA = epb->cmpa_value;
+	EPwm3Regs.CMPA.half.CMPA = epc->cmpa_value;
+}
+
+/*
+ * FunName:HAL_GetSampleResult
+ * Description:获取采样值
+ * Input:采样索引index.
+ * Output:None
+ * Others:None
+ * */
+float HAL_GetSampleResult(Uint8 index)
+{
+	if(index >= SAMPLE_NUM) return 0;
+	return (p_sam.data[index]);
 }
