@@ -18,6 +18,7 @@ extern ThreePhase_Data_Structure Inverter_Current_Data;
 extern ThreePhase_Data_Structure Control_Data;
 extern ThreePhase_Data_Structure Inverter_CapVoltage_Data;
 extern ThreePhase_Data_Structure Inverter_CapCurrent_Data;
+extern ThreePhase_Data_Structure Target_Data;
 
 #pragma CODE_SECTION(AAL_Trans_Park,"ramfuncs");
 #pragma CODE_SECTION(AAL_Trans_Clark,"ramfuncs");

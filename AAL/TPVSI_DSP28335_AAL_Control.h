@@ -18,4 +18,7 @@ void AAL_Control_PID(PID_Structure *p,float err);
 
 //准谐振控制器函数声明
 
+
+//三阶控制器函数声明
+void AAL_Control_ThirdOrderController(ThirdOrder_Controller_Structure *p);
 #endif /* AAL_TPVSI_DSP28335_AAL_CONTROL_H_ */

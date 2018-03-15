@@ -121,7 +121,25 @@ typedef struct{
 	float output_last;
 }PID_Structure;
 
-
+/*
+ * StructureName:PID_Structure
+ * Description:PID控制器结构体.
+ * Elements:
+ * 	y2->y(n-2)
+ * 	y1->y(n-1)
+ * 	y->y(n)
+ * 	x2->x(n-2)
+ * 	x1->x(n-1)
+ * 	x->x(n)
+ * */
+typedef struct{
+	float y2;
+	float y1;
+	float x2;
+	float x1;
+	float y;
+	float x;
+}ThirdOrder_Controller_Structure;
 
 
 /*三相数据结构体索引枚举定义*/

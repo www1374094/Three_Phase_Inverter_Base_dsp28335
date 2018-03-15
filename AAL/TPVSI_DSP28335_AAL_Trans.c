@@ -12,6 +12,7 @@ ThreePhase_Data_Structure Inverter_Current_Data;
 ThreePhase_Data_Structure Control_Data;
 ThreePhase_Data_Structure Inverter_CapVoltage_Data;
 ThreePhase_Data_Structure Inverter_CapCurrent_Data;
+ThreePhase_Data_Structure Target_Data;
 
 /*
  * FunName:AAL_Trans_Update
@@ -56,6 +57,7 @@ void AAL_Trans_Init(void)
 	AAL_Trans_StruInit(&Control_Data);
 	AAL_Trans_StruInit(&Inverter_CapVoltage_Data);
 	AAL_Trans_StruInit(&Inverter_CapCurrent_Data);
+	AAL_Trans_StruInit(&Target_Data);
 }
 
 /*

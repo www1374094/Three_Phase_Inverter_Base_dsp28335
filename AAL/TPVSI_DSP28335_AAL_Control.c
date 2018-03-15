@@ -7,6 +7,8 @@
 
 #include "TPVSI_DSP28335_AAL_Control.h"
 
+ThirdOrder_Controller_Structure PR_Controller;
+
 
 /*
  * FunName:AAL_Control_PID_DeInit
@@ -61,4 +63,10 @@ void AAL_Control_PID(PID_Structure *p,float err)
 		p->output = 0.99;
 	else if(p->output<-1)
 		p->output = -0.99;
+}
+
+void AAL_Control_ThirdOrderController(ThirdOrder_Controller_Structure *p)
+{
+	//PR¿ØÖÆÆ÷
+	p->y = 2*(p->y1) - 0.9745*(p->y2) + 0.673*(p->x) - 0.04*(p->x2);
 }
