@@ -14,6 +14,7 @@
 #include "Solar_F.h"
 #include "TPVSI_DSP28335_AAL_Trans.h"
 #include "TPVSI_DSP28335_Structure_Define.h"
+#include "TPVSI_DSP28335_AAL_Math.h"
 
 
 
@@ -26,6 +27,11 @@ extern Sin_Structure _p_sin1;
 extern EPWM_Structure _p_epwm1;
 extern EPWM_Structure _p_epwm2;
 extern EPWM_Structure _p_epwm3;
+
+#if DEBUG_DAC_OUTPUT
+extern EPWM_Structure _p_epwm4;
+extern EPWM_Structure _p_epwm5;
+#endif
 
 void HAL_EPWM_Structure_Init(void);
 void HAL_PWM_DutyValue_Cal(EPWM_Structure *ep,float duty,float duty_max,float duty_min);

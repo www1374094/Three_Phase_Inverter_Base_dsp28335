@@ -35,7 +35,7 @@ void AAL_Control_PID_DeInit(PID_Structure *p)
  * */
 void AAL_Control_PID_Init(PID_Structure *p,float Ts,float kp,float ki)
 {
-	CON_PID_DeInit(p);
+	AAL_Control_PID_DeInit(p);
 	p->Ts = Ts;
 	p->kp = kp;
 	p->ki = ki;

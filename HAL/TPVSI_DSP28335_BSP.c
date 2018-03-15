@@ -14,6 +14,7 @@
 #define ADC_MODCLK 0x2
 #endif
 
+
 #define ADC_CKPS 	0x1//ADC的时钟频率可以计算为HSPCLK/(2*ADC_CKPS)
 #define ADC_SHCLK 	0xf//采样保持宽度
 #define AVG 		1000
@@ -183,9 +184,50 @@ void BSP_ePWM_Init(void)
 	EPwm1Regs.ETSEL.bit.INTSEL = ET_CTR_ZERO;//中断源选择
 	EPwm1Regs.ETSEL.bit.INTEN = 1;//使能中断
 	EPwm1Regs.ETPS.bit.INTPRD = ET_2ND;//每两次触发执行
+
+#if DEBUG_DAC_OUTPUT
+	//DAC输出设置
+	//EPWM4
+	EPwm4Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
+	EPwm4Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
+	EPwm4Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
+	EPwm4Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
+	EPwm4Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
+	EPwm4Regs.TBPRD = 3000;//75MHz/3000=25KHzPWM
+	EPwm4Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
+	EPwm4Regs.CMPB = 1500;
+	//各寄存器都工作在影子寄存器模式
+	EPwm4Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+	EPwm4Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+	EPwm4Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
+	EPwm4Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
+	//设置AQ寄存器
+	EPwm4Regs.AQCTLA.bit.CAU = AQ_CLEAR;
+	EPwm4Regs.AQCTLA.bit.PRD = AQ_SET;
+
+	//EPWM5
+	EPwm5Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
+	EPwm5Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
+	EPwm5Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
+	EPwm5Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
+	EPwm5Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
+	EPwm5Regs.TBPRD = 3000;//75MHz/3000=25KHzPWM
+	EPwm5Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
+	EPwm5Regs.CMPB = 1500;
+	//各寄存器都工作在影子寄存器模式
+	EPwm5Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+	EPwm5Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+	EPwm5Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
+	EPwm5Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
+	//设置AQ寄存器
+	EPwm5Regs.AQCTLA.bit.CAU = AQ_CLEAR;
+	EPwm5Regs.AQCTLA.bit.PRD = AQ_SET;
+#endif
 	EALLOW;
 	SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 1;
 	EDIS;
+
+
 }
 
 /*设置GPIO*/
@@ -199,6 +241,9 @@ void BSP_GPIO_Init(void)
 	GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0x01;
 	GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0x01;
 	GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0x01;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO6 = 0x01;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO8 = 0x01;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO10 = 0x01;
 	//设置上拉（我也不知道为什么，看例程里有）
 	GpioCtrlRegs.GPAPUD.bit.GPIO0 = 0;
 	GpioCtrlRegs.GPAPUD.bit.GPIO1 = 0;
@@ -206,6 +251,9 @@ void BSP_GPIO_Init(void)
 	GpioCtrlRegs.GPAPUD.bit.GPIO3 = 0;
 	GpioCtrlRegs.GPAPUD.bit.GPIO4 = 0;
 	GpioCtrlRegs.GPAPUD.bit.GPIO5 = 0;
+	GpioCtrlRegs.GPAPUD.bit.GPIO6 = 0;
+	GpioCtrlRegs.GPAPUD.bit.GPIO8 = 0;
+	GpioCtrlRegs.GPAPUD.bit.GPIO10 = 0;
 	//其它GPIO脚设置
 	GpioCtrlRegs.GPAMUX2.bit.GPIO24 = 0x00;
 	GpioCtrlRegs.GPADIR.bit.GPIO24 = 0x01;//设置为输出

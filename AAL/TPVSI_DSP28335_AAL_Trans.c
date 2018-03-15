@@ -10,6 +10,9 @@
 ThreePhase_Data_Structure Inverter_Voltage_Data;
 ThreePhase_Data_Structure Inverter_Current_Data;
 ThreePhase_Data_Structure Control_Data;
+ThreePhase_Data_Structure Inverter_CapVoltage_Data;
+ThreePhase_Data_Structure Inverter_CapCurrent_Data;
+
 /*
  * FunName:AAL_Trans_Update
  * Description:从HAL层中的采样结构体中读取数据到算法层
@@ -19,12 +22,24 @@ ThreePhase_Data_Structure Control_Data;
  * */
 void AAL_Trans_Update(Sample_Structure *p)
 {
+	static float vcap_last[3] = {0,0,0};
+	int i = 0;
 	Inverter_Voltage_Data.abc_data[index_a] = p->data[VoltageA];
 	Inverter_Voltage_Data.abc_data[index_b] = p->data[VoltageB];
 	Inverter_Voltage_Data.abc_data[index_c] = p->data[VoltageC];
 	Inverter_Current_Data.abc_data[index_a] = p->data[CurrentA];
 	Inverter_Current_Data.abc_data[index_b] = p->data[CurrentB];
 	Inverter_Current_Data.abc_data[index_c] = p->data[CurrentC];
+	Inverter_CapVoltage_Data.abc_data[index_a] = p->data[CapVoltageA];
+	Inverter_CapVoltage_Data.abc_data[index_b] = p->data[CapVoltageB];
+	Inverter_CapVoltage_Data.abc_data[index_c] = p->data[CapVoltageC];
+	//利用差分法计算滤波电容的电流，单位为A
+	for(i = 0;i<3;i++)
+	{
+		Inverter_CapCurrent_Data.abc_data[i] =
+				0.055*(Inverter_CapVoltage_Data.abc_data[i] - vcap_last[i]);
+		vcap_last[i] = Inverter_CapVoltage_Data.abc_data[i];
+	}
 }
 
 /*
@@ -39,6 +54,8 @@ void AAL_Trans_Init(void)
 	AAL_Trans_StruInit(&Inverter_Voltage_Data);
 	AAL_Trans_StruInit(&Inverter_Current_Data);
 	AAL_Trans_StruInit(&Control_Data);
+	AAL_Trans_StruInit(&Inverter_CapVoltage_Data);
+	AAL_Trans_StruInit(&Inverter_CapCurrent_Data);
 }
 
 /*
@@ -93,7 +110,7 @@ void AAL_Trans_iPark(ThreePhase_Data_Structure *p,float angle)
 {
 	p->ipark_p.d = p->dq0_data[index_d];
 	p->ipark_p.q = p->dq0_data[index_q];
-	p->ipark_p.zero = p->dq0_data[0];
+	p->ipark_p.z = p->dq0_data[0];
 	p->ipark_p.sin = sin(angle);
 	p->ipark_p.cos = cos(angle);
 	iPARK_F_MACRO(p->ipark_p);

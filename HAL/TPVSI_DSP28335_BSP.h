@@ -22,6 +22,8 @@ void BSP_DMA_Init(void);
 
 #define INTERNAL_REFERENCE 1
 #define EXTERNAL_REFERENCE 0
+//定义下面的宏为1可以打开DAC输出功能，用以在调试的时候观察波形
+#define DEBUG_DAC_OUTPUT 1
 
 extern Uint16 DMA_Buf[14];
 #endif /* TPVSI_DSP28335_BSP_H_ */

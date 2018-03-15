@@ -6,9 +6,16 @@
  */
 #include "TPVSI_DSP28335_HAL.h"
 #include "C28x_FPU_FastRTS.h"
+
+
 EPWM_Structure _p_epwm1;
 EPWM_Structure _p_epwm2;
 EPWM_Structure _p_epwm3;
+
+#if DEBUG_DAC_OUTPUT
+EPWM_Structure _p_epwm4;
+EPWM_Structure _p_epwm5;
+#endif
 Sin_Structure _p_sin1;
 Sample_Structure p_sam;
 
@@ -44,6 +51,18 @@ void HAL_EPWM_Structure_Init(void)
 	_p_epwm3.cmp_min = 0;
 	_p_epwm3.cmpa_value = 1500;
 	_p_epwm3.cmpb_value = 1500;
+	_p_epwm4.fre = 50000;
+	_p_epwm4.bias = 1500;
+	_p_epwm4.cmp_max = 3000;
+	_p_epwm4.cmp_min = 0;
+	_p_epwm4.cmpa_value = 1500;
+	_p_epwm4.cmpb_value = 1500;
+	_p_epwm5.fre = 50000;
+	_p_epwm5.bias = 1500;
+	_p_epwm5.cmp_max = 3000;
+	_p_epwm5.cmp_min = 0;
+	_p_epwm5.cmpa_value = 1500;
+	_p_epwm5.cmpb_value = 1500;
 }
 
 
@@ -67,6 +86,10 @@ void HAL_PWM_DutyValue_Cal(EPWM_Structure *ep,float duty,float duty_max,float du
 void HAL_Sample_Init(Sample_Structure *p)
 {
 	Uint8 i;
+	for(i = 0;i<SAMPLE_NUM;i++)
+	{
+		p->k[i] = 1;
+	}
 	/*TODO:在这里定义采样的系数*/
 	p->k[0] = 0.0362;
 	p->k[1] = 0.0362;
@@ -74,6 +97,9 @@ void HAL_Sample_Init(Sample_Structure *p)
 	p->k[3] = 0.014066;
 	p->k[4] = 0.014066;
 	p->k[5] = 0.014066;
+	p->k[CapVoltageA] = 0.0362;
+	p->k[CapVoltageB] = 0.0362;
+	p->k[CapVoltageC] = 0.0362;
 	/*下面初始化数据数组*/
 	for(i=0;i<SAMPLE_NUM;i++)
 	{
@@ -95,6 +121,10 @@ void HAL_Sample(Sample_Structure *p)
 {
 	static int zero[SAMPLE_NUM];
 	Uint8 i = 0;
+	for(i = 0;i<SAMPLE_NUM;i++)
+	{
+		zero[i] = 0;
+	}
 	/*TODO：在这里定义采样零点偏移量*/
 	zero[0] = 1430;
 	zero[1] = 1483;
@@ -102,8 +132,11 @@ void HAL_Sample(Sample_Structure *p)
 	zero[3] = 1566;
 	zero[4] = 1567;
 	zero[5] = 1567;
+	zero[CapVoltageA] = 1430;
+	zero[CapVoltageB] = 1430;
+	zero[CapVoltageC] = 1430;
 	/*下面计算各采样数据*/
-	for(;i<SAMPLE_NUM;i++)
+	for(i = 0;i<SAMPLE_NUM;i++)
 	{
 		p->data[i] = p->k[i]*(float)((int)DMA_Buf[i] - zero[i]);
 	}
