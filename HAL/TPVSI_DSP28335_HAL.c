@@ -174,3 +174,36 @@ float HAL_GetSampleResult(Uint8 index)
 	if(index >= SAMPLE_NUM) return 0;
 	return (p_sam.data[index]);
 }
+
+
+/*
+ * FunName:HAL_EPWM_DISABLE
+ * Description:关掉所有EPWM输出
+ * Input:None
+ * Output:None
+ * Others:None
+ * */
+void HAL_EPWM_DISABLE(void)
+{
+	EALLOW;
+	//关掉所有EPWM输出
+	GpioCtrlRegs.GPAMUX1.bit.GPIO0 = 0x00;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO1 = 0x00;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO2 = 0x00;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO3 = 0x00;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO4 = 0x00;
+	GpioCtrlRegs.GPAMUX1.bit.GPIO5 = 0x00;
+	GpioCtrlRegs.GPADIR.bit.GPIO0 = 0x01;
+	GpioCtrlRegs.GPADIR.bit.GPIO1 = 0x01;
+	GpioCtrlRegs.GPADIR.bit.GPIO2 = 0x01;
+	GpioCtrlRegs.GPADIR.bit.GPIO3 = 0x01;
+	GpioCtrlRegs.GPADIR.bit.GPIO4 = 0x01;
+	GpioCtrlRegs.GPADIR.bit.GPIO5 = 0x01;
+	GpioDataRegs.GPACLEAR.bit.GPIO0 = 1;
+	GpioDataRegs.GPACLEAR.bit.GPIO1 = 1;
+	GpioDataRegs.GPACLEAR.bit.GPIO2 = 1;
+	GpioDataRegs.GPACLEAR.bit.GPIO3 = 1;
+	GpioDataRegs.GPACLEAR.bit.GPIO4 = 1;
+	GpioDataRegs.GPACLEAR.bit.GPIO5 = 1;
+	EDIS;
+}

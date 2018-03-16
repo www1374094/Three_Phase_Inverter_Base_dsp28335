@@ -31,6 +31,7 @@ int main(void)
 	PieVectTable.EPWM1_INT = &epwm1_isr;
 	EDIS;
 	/*TODO:这里初始化硬件抽象层和算法抽象层*/
+//	HAL_EPWM_DISABLE();
 	HAL_Init();
 	AAL_Trans_Init();
 	AAL_PLL_Init();

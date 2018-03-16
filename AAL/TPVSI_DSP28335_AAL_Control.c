@@ -107,8 +107,8 @@ void AAL_Control_CurrentLoop(ThreePhase_Data_Structure *p_i,
 	AAL_Control_ThirdOrderController(&PR_ControllerC,
 				(p_target->abc_data[index_c] - p_i->abc_data[index_c]));
 	//加入有源阻尼
-	p_con->abc_data[index_a] = 1.1667*((PR_ControllerA.y[0])- (p_icap->abc_data[index_a]));
-	p_con->abc_data[index_b] = 1.1667*((PR_ControllerB.y[0])- (p_icap->abc_data[index_b]));
-	p_con->abc_data[index_c] = 1.1667*((PR_ControllerC.y[0])- (p_icap->abc_data[index_c]));
+	p_con->abc_data[index_a] = 2*1.1667*((PR_ControllerA.y[0])- (p_icap->abc_data[index_a]));
+	p_con->abc_data[index_b] = 2*1.1667*((PR_ControllerB.y[0])- (p_icap->abc_data[index_b]));
+	p_con->abc_data[index_c] = 2*1.1667*((PR_ControllerC.y[0])- (p_icap->abc_data[index_c]));
 
 }
