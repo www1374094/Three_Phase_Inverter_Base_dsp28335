@@ -183,7 +183,7 @@ void BSP_ePWM_Init(void)
 	EPwm1Regs.ETPS.bit.SOCBPRD = ET_1ST;
 	EPwm1Regs.ETSEL.bit.INTSEL = ET_CTR_ZERO;//中断源选择
 	EPwm1Regs.ETSEL.bit.INTEN = 1;//使能中断
-	EPwm1Regs.ETPS.bit.INTPRD = ET_2ND;//每两次触发执行
+	EPwm1Regs.ETPS.bit.INTPRD = ET_1ST;//每次触发都执行
 
 #if DEBUG_DAC_OUTPUT
 	//DAC输出设置

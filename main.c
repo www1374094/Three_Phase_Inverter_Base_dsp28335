@@ -33,6 +33,8 @@ int main(void)
 	/*TODO:这里初始化硬件抽象层和算法抽象层*/
 	HAL_Init();
 	AAL_Trans_Init();
+	AAL_PLL_Init();
+	AAL_Control_ThirdOrderControllerInit();
 	/*TODO:这里配置中断源*/
 	IER |= M_INT3;
 	PieCtrlRegs.PIEIER3.bit.INTx1 = 1;

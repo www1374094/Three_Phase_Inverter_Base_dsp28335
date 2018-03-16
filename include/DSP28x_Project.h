@@ -23,5 +23,6 @@
 #include "TPVSI_DSP28335_INT.h"
 #include "TPVSI_DSP28335_HAL.h"
 #include "TPVSI_DSP28335_AAL_Trans.h"
+#include "TPVSI_DSP28335_AAL_PLL.h"
 #endif  // end of DSP28x_PROJECT_H definition
 

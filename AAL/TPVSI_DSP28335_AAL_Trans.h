@@ -27,6 +27,7 @@ extern ThreePhase_Data_Structure Target_Data;
 #pragma CODE_SECTION(AAL_Trans_SetDQ0Value,"ramfuncs");
 #pragma CODE_SECTION(AAL_Trans_ABCDQ0,"ramfuncs");
 #pragma CODE_SECTION(AAL_Trans_DQ0ABC,"ramfuncs");
+#pragma CODE_SECTION(AAL_Trans_Update,"ramfuncs");
 
 void AAL_Trans_Update(Sample_Structure *p);
 void AAL_Trans_Init(void);

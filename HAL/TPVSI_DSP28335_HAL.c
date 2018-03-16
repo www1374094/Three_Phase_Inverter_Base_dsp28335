@@ -21,6 +21,7 @@ Sample_Structure p_sam;
 
 #pragma CODE_SECTION(HAL_Sample,"ramfuncs");
 
+
 void HAL_Init(void)
 {
 	HAL_EPWM_Structure_Init();
@@ -65,7 +66,7 @@ void HAL_EPWM_Structure_Init(void)
 	_p_epwm5.cmpb_value = 1500;
 }
 
-
+#pragma CODE_SECTION(HAL_PWM_DutyValue_Cal,"ramfuncs");
 void HAL_PWM_DutyValue_Cal(EPWM_Structure *ep,float duty,float duty_max,float duty_min)
 {
 	Uint16 temp;
@@ -94,9 +95,9 @@ void HAL_Sample_Init(Sample_Structure *p)
 	p->k[0] = 0.0362;
 	p->k[1] = 0.0362;
 	p->k[2] = 0.0362;
-	p->k[3] = 0.014066;
-	p->k[4] = 0.014066;
-	p->k[5] = 0.014066;
+	p->k[3] = -1*0.014066;
+	p->k[4] = -1*0.014066;
+	p->k[5] = -1*0.014066;
 	p->k[CapVoltageA] = 0.0362;
 	p->k[CapVoltageB] = 0.0362;
 	p->k[CapVoltageC] = 0.0362;

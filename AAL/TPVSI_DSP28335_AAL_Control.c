@@ -7,8 +7,12 @@
 
 #include "TPVSI_DSP28335_AAL_Control.h"
 
-ThirdOrder_Controller_Structure PR_Controller;
 
+
+
+ThirdOrder_Controller_Structure PR_ControllerA;
+ThirdOrder_Controller_Structure PR_ControllerB;
+ThirdOrder_Controller_Structure PR_ControllerC;
 
 /*
  * FunName:AAL_Control_PID_DeInit
@@ -65,8 +69,46 @@ void AAL_Control_PID(PID_Structure *p,float err)
 		p->output = -0.99;
 }
 
-void AAL_Control_ThirdOrderController(ThirdOrder_Controller_Structure *p)
+
+void AAL_Control_ThirdOrderControllerInit(void)
+{
+	int i = 0;
+	for(i = 0;i<3;i++)
+	{
+		PR_ControllerA.x[i] = 0;
+		PR_ControllerA.y[i] = 0;
+		PR_ControllerB.x[i] = 0;
+		PR_ControllerB.y[i] = 0;
+		PR_ControllerC.x[i] = 0;
+		PR_ControllerC.y[i] = 0;
+	}
+}
+void AAL_Control_ThirdOrderController(ThirdOrder_Controller_Structure *p,float x)
+{
+	p->x[0] = x;
+	//PR控制器
+	p->y[0] = 1.999*(p->y[1]) - 0.9996*(p->y[2]) + 0.653*(p->x[0]) - 1.2656*(p->x[1]) + 0.61278*(p->x[2]);
+	//更新数据
+	p->x[2] = p->x[1];
+	p->x[1] = p->x[0];
+	p->y[2] = p->y[1];
+	p->y[1] = p->y[0];
+}
+
+void AAL_Control_CurrentLoop(ThreePhase_Data_Structure *p_i,
+		ThreePhase_Data_Structure *p_icap,ThreePhase_Data_Structure *p_con,
+		ThreePhase_Data_Structure *p_target)
 {
 	//PR控制器
-	p->y = 2*(p->y1) - 0.9745*(p->y2) + 0.673*(p->x) - 0.04*(p->x2);
+	AAL_Control_ThirdOrderController(&PR_ControllerA,
+				(p_target->abc_data[index_a] - p_i->abc_data[index_a]));
+	AAL_Control_ThirdOrderController(&PR_ControllerB,
+				(p_target->abc_data[index_b] - p_i->abc_data[index_b]));
+	AAL_Control_ThirdOrderController(&PR_ControllerC,
+				(p_target->abc_data[index_c] - p_i->abc_data[index_c]));
+	//加入有源阻尼
+	p_con->abc_data[index_a] = 1.1667*((PR_ControllerA.y[0])- (p_icap->abc_data[index_a]));
+	p_con->abc_data[index_b] = 1.1667*((PR_ControllerB.y[0])- (p_icap->abc_data[index_b]));
+	p_con->abc_data[index_c] = 1.1667*((PR_ControllerC.y[0])- (p_icap->abc_data[index_c]));
+
 }
