@@ -133,8 +133,8 @@ typedef struct{
  * 	x->x(n)
  * */
 typedef struct{
-	float x[3];
-	float y[3];
+	float x[4];
+	float y[4];
 }ThirdOrder_Controller_Structure;
 
 
