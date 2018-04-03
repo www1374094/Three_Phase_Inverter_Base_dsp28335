@@ -36,6 +36,7 @@ int main(void)
 	AAL_Trans_Init();
 	AAL_PLL_Init();
 	AAL_Control_ThirdOrderControllerInit();
+	HAL_Relay_On();
 	/*TODO:这里配置中断源*/
 	IER |= M_INT3;
 	PieCtrlRegs.PIEIER3.bit.INTx1 = 1;

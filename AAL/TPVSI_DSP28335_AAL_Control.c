@@ -88,14 +88,15 @@ void AAL_Control_ThirdOrderController(ThirdOrder_Controller_Structure *p,float x
 	float temp;
 	p->x[0] = x;
 	//PR控制器
-	p->y[0] = 1.999*(p->y[1]) - 0.9996*(p->y[2]) + 0.653*(p->x[0]) - 1.2656*(p->x[1]) + 0.61278*(p->x[2]);
-/*	temp = 1.563*(p->y[1]) - 0.1267*(p->y[2]) - 0.4366*(p->y[3])
+//	p->y[0] = 1.999*(p->y[1]) - 0.9996*(p->y[2]) + 0.653*(p->x[0]) - 1.2656*(p->x[1]) + 0.61278*(p->x[2]);
+	//Hinf控制器
+	temp = 1.563*(p->y[1]) - 0.1267*(p->y[2]) - 0.4366*(p->y[3])
 			+ 0.2849*(p->x[0]) - 0.2615*(p->x[1]) - 0.2842*(p->x[2]) + 0.262*(p->x[3]);
 	if(temp>10)
 		temp = 10;
 	if(temp<-10)
 		temp = -10;
-	p->y[0] = temp;*/
+	p->y[0] = temp;
 	//更新数据
 	p->x[3] = p->x[2];
 	p->x[2] = p->x[1];
@@ -117,8 +118,8 @@ void AAL_Control_CurrentLoop(ThreePhase_Data_Structure *p_i,
 	AAL_Control_ThirdOrderController(&PR_ControllerC,
 				(p_target->abc_data[index_c] - p_i->abc_data[index_c]));
 	//加入有源阻尼
-	p_con->abc_data[index_a] = 1.5*1.1667*((PR_ControllerA.y[0])- (p_icap->abc_data[index_a]));
-	p_con->abc_data[index_b] = 1.5*1.1667*((PR_ControllerB.y[0])- (p_icap->abc_data[index_b]));
-	p_con->abc_data[index_c] = 1.5*1.1667*((PR_ControllerC.y[0])- (p_icap->abc_data[index_c]));//实验数据为原有源阻尼系数乘以1.5
-
+	p_con->abc_data[index_a] = 1.26*((PR_ControllerA.y[0])- (p_icap->abc_data[index_a]));
+	p_con->abc_data[index_b] = 1.26*((PR_ControllerB.y[0])- (p_icap->abc_data[index_b]));//1.26
+	p_con->abc_data[index_c] = 1.26*((PR_ControllerC.y[0])- (p_icap->abc_data[index_c]));//实验数据为原有源阻尼系数乘以1.5
+	//低电压测试的时候，阻尼系数为1.5*1.1667
 }

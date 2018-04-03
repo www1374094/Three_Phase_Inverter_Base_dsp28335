@@ -103,16 +103,16 @@ void BSP_ePWM_Init(void)
 	EDIS;
 	//EPWM1
 	EPwm1Regs.TBCTL.bit.FREE_SOFT = 0x00;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
-	EPwm1Regs.TBCTL.bit.CLKDIV = 0x1;//不分频
+	EPwm1Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
 	EPwm1Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
 	EPwm1Regs.TBCTL.bit.SYNCOSEL = TB_CTR_ZERO;//各EPWM模块与EPWM1同步
 	EPwm1Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
-	EPwm1Regs.TBPRD = 3000;//75MHz/3000=25KHzPWM
+	EPwm1Regs.TBPRD = 3000;//150MHz/3000=25KHzPWM
 	EPwm1Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
-	EPwm1Regs.CMPB = 1500;
+	EPwm1Regs.CMPB = 2500;
 	//各寄存器都工作在影子寄存器模式
-	EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
-	EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+	EPwm1Regs.CMPCTL.bit.SHDWAMODE = CC_IMMEDIATE;
+	EPwm1Regs.CMPCTL.bit.SHDWBMODE = CC_IMMEDIATE;
 	EPwm1Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
 	EPwm1Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
 	//AQ寄存器设置
@@ -127,17 +127,17 @@ void BSP_ePWM_Init(void)
 	EPwm1Regs.DBRED = 30;
 	//EPWM2
 	EPwm2Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
-	EPwm2Regs.TBCTL.bit.CLKDIV = 0x1;//不分频
+	EPwm2Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
 	EPwm2Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
 	EPwm2Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
 	EPwm2Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
 	EPwm2Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
-	EPwm2Regs.TBPRD = 3000;//75MHz/3000=25KHzPWM
+	EPwm2Regs.TBPRD = 3000;//150MHz/3000=25KHzPWM
 	EPwm2Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
 	EPwm2Regs.CMPB = 1500;
 	//各寄存器都工作在影子寄存器模式
-	EPwm2Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
-	EPwm2Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+	EPwm2Regs.CMPCTL.bit.SHDWAMODE = CC_IMMEDIATE;
+	EPwm2Regs.CMPCTL.bit.SHDWBMODE = CC_IMMEDIATE;
 	EPwm2Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
 	EPwm2Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
 	//设置AQ寄存器
@@ -152,16 +152,16 @@ void BSP_ePWM_Init(void)
 	EPwm2Regs.DBRED = 30;
 	//EPWM3
 	EPwm3Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
-	EPwm3Regs.TBCTL.bit.CLKDIV = 0x1;//不分频
+	EPwm3Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
 	EPwm3Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
 	EPwm3Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
 	EPwm3Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
-	EPwm3Regs.TBPRD = 3000;//75MHz/3000=25KHzPWM
+	EPwm3Regs.TBPRD = 3000;//150MHz/3000=25KHzPWM
 	EPwm3Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
 	EPwm3Regs.CMPB = 1500;
 	//各寄存器都工作在影子寄存器模式
-	EPwm3Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
-	EPwm3Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+	EPwm3Regs.CMPCTL.bit.SHDWAMODE = CC_IMMEDIATE;
+	EPwm3Regs.CMPCTL.bit.SHDWBMODE = CC_IMMEDIATE;
 	EPwm3Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
 	EPwm3Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
 	//设置AQ寄存器
@@ -183,7 +183,7 @@ void BSP_ePWM_Init(void)
 	EPwm1Regs.ETPS.bit.SOCBPRD = ET_1ST;
 	EPwm1Regs.ETSEL.bit.INTSEL = ET_CTR_ZERO;//中断源选择
 	EPwm1Regs.ETSEL.bit.INTEN = 1;//使能中断
-	EPwm1Regs.ETPS.bit.INTPRD = ET_1ST;//每次触发都执行
+	EPwm1Regs.ETPS.bit.INTPRD = ET_2ND;//每两次触发执行一次
 
 #if DEBUG_DAC_OUTPUT
 	//DAC输出设置
@@ -222,6 +222,24 @@ void BSP_ePWM_Init(void)
 	//设置AQ寄存器
 	EPwm5Regs.AQCTLA.bit.CAU = AQ_CLEAR;
 	EPwm5Regs.AQCTLA.bit.PRD = AQ_SET;
+
+	//EPWM6
+	EPwm6Regs.TBCTL.bit.FREE_SOFT = 0x01;//为了保证安全，在仿真器停止的时候，应保证各MOS管关断
+    EPwm6Regs.TBCTL.bit.CLKDIV = 0x0;//不分频
+    EPwm6Regs.TBCTL.bit.HSPCLKDIV = 0x0;//TBCLK = SYSCLKOUT/(HSPCLKDIV x CLKDIV)
+    EPwm6Regs.TBCTL.bit.SYNCOSEL = TB_SYNC_IN;//各EPWM模块与EPWM1同步
+    EPwm6Regs.TBCTL.bit.CTRMODE = TB_COUNT_UP;
+    EPwm6Regs.TBPRD = 3000;//75MHz/3000=25KHzPWM
+    EPwm6Regs.CMPA.half.CMPA = 1500;//初始化50%占空比
+    EPwm6Regs.CMPB = 1500;
+    //各寄存器都工作在影子寄存器模式
+    EPwm6Regs.CMPCTL.bit.SHDWAMODE = CC_SHADOW;
+    EPwm6Regs.CMPCTL.bit.SHDWBMODE = CC_SHADOW;
+    EPwm6Regs.CMPCTL.bit.LOADAMODE = CC_CTR_ZERO;
+    EPwm6Regs.CMPCTL.bit.LOADBMODE = CC_CTR_ZERO;
+    //设置AQ寄存器
+    EPwm6Regs.AQCTLA.bit.CAU = AQ_CLEAR;
+    EPwm6Regs.AQCTLA.bit.PRD = AQ_SET;
 #endif
 	EALLOW;
 	SysCtrlRegs.PCLKCR0.bit.TBCLKSYNC = 1;
@@ -264,8 +282,33 @@ void BSP_GPIO_Init(void)
 	GpioCtrlRegs.GPBMUX2.bit.GPIO60 = 0x00;
 	GpioCtrlRegs.GPBDIR.bit.GPIO60 = 0x01;
 	GpioDataRegs.GPBSET.bit.GPIO60 = 0x00;
-	//GpioDataRegs.GPACLEAR.bit.GPIO24 = 0x01;
+	//GpioDataRegs.GPACLEAR.bit.GPIO24 = 0x01;\
+	//Relay1
+	GpioCtrlRegs.GPBMUX1.bit.GPIO33 = 0x00;
+	GpioCtrlRegs.GPBDIR.bit.GPIO33 = 0x01;//设置为输出
+	GpioDataRegs.GPBCLEAR.bit.GPIO33 = 0x01;//Close the relay during power-up
+	//Relay2
+	GpioCtrlRegs.GPBMUX2.bit.GPIO49 = 0x00;
+	GpioCtrlRegs.GPBDIR.bit.GPIO49 = 0x01;//设置为输出
+	GpioDataRegs.GPBCLEAR.bit.GPIO49 = 0x01;//Close the relay during power-up
+	//Relay3
+	GpioCtrlRegs.GPBMUX2.bit.GPIO58 = 0x00;
+	GpioCtrlRegs.GPBDIR.bit.GPIO58 = 0x01;//设置为输出
+	GpioDataRegs.GPBCLEAR.bit.GPIO58 = 0x01;//Close the relay during power-up
+	//RST
+	GpioCtrlRegs.GPAMUX2.bit.GPIO26 = 0x00;
+	GpioCtrlRegs.GPADIR.bit.GPIO26 = 0x01;//设置为输出
+	GpioDataRegs.GPACLEAR.bit.GPIO26 = 0x01;//Close the relay during power-up
 	EDIS;
+}
+
+void BSP_Driver_Rst(void)
+{
+    EALLOW;
+    GpioDataRegs.GPACLEAR.bit.GPIO26 = 0x01;
+    DELAY_US(1000L);
+    GpioDataRegs.GPASET.bit.GPIO26 = 0x01;
+    EDIS;
 }
 
 

@@ -2,7 +2,12 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
+SHELL = cmd.exe
+
 # Add inputs and outputs from these tool invocations to the build variables 
+ASM_UPPER_SRCS += \
+../source/FPUmathTables.ASM 
+
 ASM_SRCS += \
 ../source/CNTL_2P2Z_F_ASM.asm \
 ../source/CNTL_3P3Z_F_ASM.asm \
@@ -20,9 +25,6 @@ ASM_SRCS += \
 ../source/sin_f32.asm \
 ../source/sincos_f32.asm \
 ../source/sqrt_f32.asm 
-
-ASM_UPPER_SRCS += \
-../source/FPUmathTables.ASM 
 
 C_SRCS += \
 ../source/ABC_DQ0_NEG_F.c \
@@ -69,6 +71,55 @@ C_SRCS += \
 ../source/SPLL_3ph_DDSRF_F.c \
 ../source/iCLARKE_F.c \
 ../source/iPARK_F.c 
+
+ASM_UPPER_DEPS += \
+./source/FPUmathTables.d 
+
+C_DEPS += \
+./source/ABC_DQ0_NEG_F.d \
+./source/ABC_DQ0_POS_F.d \
+./source/CLARKE_F.d \
+./source/CNTL_2P2Z_F.d \
+./source/CNTL_3P3Z_F.d \
+./source/CNTL_PI_F.d \
+./source/DLOG_1CH_F.d \
+./source/DLOG_4CH_F.d \
+./source/DQ0_ABC_F.d \
+./source/DSP2833x_Adc.d \
+./source/DSP2833x_CpuTimers.d \
+./source/DSP2833x_DMA.d \
+./source/DSP2833x_DefaultIsr.d \
+./source/DSP2833x_ECan.d \
+./source/DSP2833x_ECap.d \
+./source/DSP2833x_EPwm.d \
+./source/DSP2833x_EQep.d \
+./source/DSP2833x_GlobalVariableDefs.d \
+./source/DSP2833x_Gpio.d \
+./source/DSP2833x_I2C.d \
+./source/DSP2833x_Mcbsp.d \
+./source/DSP2833x_MemCopy.d \
+./source/DSP2833x_PieCtrl.d \
+./source/DSP2833x_PieVect.d \
+./source/DSP2833x_Sci.d \
+./source/DSP2833x_Spi.d \
+./source/DSP2833x_SysCtrl.d \
+./source/DSP2833x_Xintf.d \
+./source/MATH_EMAVG_F.d \
+./source/MPPT_INCC_F.d \
+./source/MPPT_INCC_I_F.d \
+./source/MPPT_PNO_F.d \
+./source/NOTCH_FLTR_F.d \
+./source/PARK_F.d \
+./source/PID_GRANDO_F.d \
+./source/RAMPGEN_F.d \
+./source/SINEANALYZER_DIFF_F.d \
+./source/SINEANALYZER_DIFF_wPWR_F.d \
+./source/SPLL_1ph_F.d \
+./source/SPLL_1ph_SOGI_F.d \
+./source/SPLL_3PH_SRF_F.d \
+./source/SPLL_3ph_DDSRF_F.d \
+./source/iCLARKE_F.d \
+./source/iPARK_F.d 
 
 OBJS += \
 ./source/ABC_DQ0_NEG_F.obj \
@@ -151,103 +202,8 @@ ASM_DEPS += \
 ./source/sincos_f32.d \
 ./source/sqrt_f32.d 
 
-C_DEPS += \
-./source/ABC_DQ0_NEG_F.d \
-./source/ABC_DQ0_POS_F.d \
-./source/CLARKE_F.d \
-./source/CNTL_2P2Z_F.d \
-./source/CNTL_3P3Z_F.d \
-./source/CNTL_PI_F.d \
-./source/DLOG_1CH_F.d \
-./source/DLOG_4CH_F.d \
-./source/DQ0_ABC_F.d \
-./source/DSP2833x_Adc.d \
-./source/DSP2833x_CpuTimers.d \
-./source/DSP2833x_DMA.d \
-./source/DSP2833x_DefaultIsr.d \
-./source/DSP2833x_ECan.d \
-./source/DSP2833x_ECap.d \
-./source/DSP2833x_EPwm.d \
-./source/DSP2833x_EQep.d \
-./source/DSP2833x_GlobalVariableDefs.d \
-./source/DSP2833x_Gpio.d \
-./source/DSP2833x_I2C.d \
-./source/DSP2833x_Mcbsp.d \
-./source/DSP2833x_MemCopy.d \
-./source/DSP2833x_PieCtrl.d \
-./source/DSP2833x_PieVect.d \
-./source/DSP2833x_Sci.d \
-./source/DSP2833x_Spi.d \
-./source/DSP2833x_SysCtrl.d \
-./source/DSP2833x_Xintf.d \
-./source/MATH_EMAVG_F.d \
-./source/MPPT_INCC_F.d \
-./source/MPPT_INCC_I_F.d \
-./source/MPPT_PNO_F.d \
-./source/NOTCH_FLTR_F.d \
-./source/PARK_F.d \
-./source/PID_GRANDO_F.d \
-./source/RAMPGEN_F.d \
-./source/SINEANALYZER_DIFF_F.d \
-./source/SINEANALYZER_DIFF_wPWR_F.d \
-./source/SPLL_1ph_F.d \
-./source/SPLL_1ph_SOGI_F.d \
-./source/SPLL_3PH_SRF_F.d \
-./source/SPLL_3ph_DDSRF_F.d \
-./source/iCLARKE_F.d \
-./source/iPARK_F.d 
-
-ASM_UPPER_DEPS += \
-./source/FPUmathTables.d 
-
 ASM_UPPER_DEPS__QUOTED += \
 "source\FPUmathTables.d" 
-
-C_DEPS__QUOTED += \
-"source\ABC_DQ0_NEG_F.d" \
-"source\ABC_DQ0_POS_F.d" \
-"source\CLARKE_F.d" \
-"source\CNTL_2P2Z_F.d" \
-"source\CNTL_3P3Z_F.d" \
-"source\CNTL_PI_F.d" \
-"source\DLOG_1CH_F.d" \
-"source\DLOG_4CH_F.d" \
-"source\DQ0_ABC_F.d" \
-"source\DSP2833x_Adc.d" \
-"source\DSP2833x_CpuTimers.d" \
-"source\DSP2833x_DMA.d" \
-"source\DSP2833x_DefaultIsr.d" \
-"source\DSP2833x_ECan.d" \
-"source\DSP2833x_ECap.d" \
-"source\DSP2833x_EPwm.d" \
-"source\DSP2833x_EQep.d" \
-"source\DSP2833x_GlobalVariableDefs.d" \
-"source\DSP2833x_Gpio.d" \
-"source\DSP2833x_I2C.d" \
-"source\DSP2833x_Mcbsp.d" \
-"source\DSP2833x_MemCopy.d" \
-"source\DSP2833x_PieCtrl.d" \
-"source\DSP2833x_PieVect.d" \
-"source\DSP2833x_Sci.d" \
-"source\DSP2833x_Spi.d" \
-"source\DSP2833x_SysCtrl.d" \
-"source\DSP2833x_Xintf.d" \
-"source\MATH_EMAVG_F.d" \
-"source\MPPT_INCC_F.d" \
-"source\MPPT_INCC_I_F.d" \
-"source\MPPT_PNO_F.d" \
-"source\NOTCH_FLTR_F.d" \
-"source\PARK_F.d" \
-"source\PID_GRANDO_F.d" \
-"source\RAMPGEN_F.d" \
-"source\SINEANALYZER_DIFF_F.d" \
-"source\SINEANALYZER_DIFF_wPWR_F.d" \
-"source\SPLL_1ph_F.d" \
-"source\SPLL_1ph_SOGI_F.d" \
-"source\SPLL_3PH_SRF_F.d" \
-"source\SPLL_3ph_DDSRF_F.d" \
-"source\iCLARKE_F.d" \
-"source\iPARK_F.d" 
 
 OBJS__QUOTED += \
 "source\ABC_DQ0_NEG_F.obj" \
@@ -311,6 +267,52 @@ OBJS__QUOTED += \
 "source\sin_f32.obj" \
 "source\sincos_f32.obj" \
 "source\sqrt_f32.obj" 
+
+C_DEPS__QUOTED += \
+"source\ABC_DQ0_NEG_F.d" \
+"source\ABC_DQ0_POS_F.d" \
+"source\CLARKE_F.d" \
+"source\CNTL_2P2Z_F.d" \
+"source\CNTL_3P3Z_F.d" \
+"source\CNTL_PI_F.d" \
+"source\DLOG_1CH_F.d" \
+"source\DLOG_4CH_F.d" \
+"source\DQ0_ABC_F.d" \
+"source\DSP2833x_Adc.d" \
+"source\DSP2833x_CpuTimers.d" \
+"source\DSP2833x_DMA.d" \
+"source\DSP2833x_DefaultIsr.d" \
+"source\DSP2833x_ECan.d" \
+"source\DSP2833x_ECap.d" \
+"source\DSP2833x_EPwm.d" \
+"source\DSP2833x_EQep.d" \
+"source\DSP2833x_GlobalVariableDefs.d" \
+"source\DSP2833x_Gpio.d" \
+"source\DSP2833x_I2C.d" \
+"source\DSP2833x_Mcbsp.d" \
+"source\DSP2833x_MemCopy.d" \
+"source\DSP2833x_PieCtrl.d" \
+"source\DSP2833x_PieVect.d" \
+"source\DSP2833x_Sci.d" \
+"source\DSP2833x_Spi.d" \
+"source\DSP2833x_SysCtrl.d" \
+"source\DSP2833x_Xintf.d" \
+"source\MATH_EMAVG_F.d" \
+"source\MPPT_INCC_F.d" \
+"source\MPPT_INCC_I_F.d" \
+"source\MPPT_PNO_F.d" \
+"source\NOTCH_FLTR_F.d" \
+"source\PARK_F.d" \
+"source\PID_GRANDO_F.d" \
+"source\RAMPGEN_F.d" \
+"source\SINEANALYZER_DIFF_F.d" \
+"source\SINEANALYZER_DIFF_wPWR_F.d" \
+"source\SPLL_1ph_F.d" \
+"source\SPLL_1ph_SOGI_F.d" \
+"source\SPLL_3PH_SRF_F.d" \
+"source\SPLL_3ph_DDSRF_F.d" \
+"source\iCLARKE_F.d" \
+"source\iPARK_F.d" 
 
 ASM_DEPS__QUOTED += \
 "source\CNTL_2P2Z_F_ASM.d" \

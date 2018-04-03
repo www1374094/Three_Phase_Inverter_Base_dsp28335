@@ -19,6 +19,7 @@ void BSP_GPIO_Init(void);
 void BSP_SCI_Init(void);
 void BSP_eCAN_Init(void);
 void BSP_DMA_Init(void);
+void BSP_Driver_Rst(void);
 
 #define INTERNAL_REFERENCE 1
 #define EXTERNAL_REFERENCE 0

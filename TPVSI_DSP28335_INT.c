@@ -24,9 +24,9 @@ __interrupt void epwm1_isr(void)
 	GpioDataRegs.GPBSET.bit.GPIO60 = 1;
 	HAL_Sample(&p_sam);
 	AAL_Trans_Update(&p_sam);
-/*	Angle += 0.01256635;
+	Angle += 0.01256635;
 	if(Angle>6.2831853)
-		Angle = 0;*/
+		Angle = 0;
 	if(count<250000)
 	{
 		count++;
@@ -41,30 +41,39 @@ __interrupt void epwm1_isr(void)
 	}
 	else
 	{
-		AAL_Trans_SetDQ0Value(&Target_Data,0.9,0,0);
+		AAL_Trans_SetDQ0Value(&Target_Data,0.7,0,0);
 	}
-//	AAL_Trans_DQ0ABC(&Control_Data,Angle_pll);
+/*	AAL_Trans_DQ0ABC(&Control_Data,Angle);
+	AAL_Trans_ABCDQ0(&Inverter_Voltage_Data,Angle);*/
+//	AAL_Trans_SetDQ0Value(&Target_Data,0.7,0,0);
 	AAL_Trans_DQ0ABC(&Target_Data,Angle_pll);
+
+	//---------------------
+/*	Target_Data.abc_data[index_a]+= 0.05;
+	Target_Data.abc_data[index_b]+= 0.05;
+	Target_Data.abc_data[index_c]-= 0.1;*/
+
 	AAL_Control_CurrentLoop(&Inverter_Current_Data,&Inverter_CapCurrent_Data,
 			&Control_Data,&Target_Data);
 	HAL_DutySet(&Control_Data,&_p_epwm1,&_p_epwm2,&_p_epwm3);
 #if DEBUG_DAC_OUTPUT
-	HAL_PWM_DutyValue_Cal(&_p_epwm4,0.9*Inverter_Current_Data.abc_data[index_a],0.9,-0.9);
-//	HAL_PWM_DutyValue_Cal(&_p_epwm5,0.9*Inverter_Current_Data.abc_data[index_a],0.9,-0.9);
+	HAL_PWM_DutyValue_Cal(&_p_epwm4,0.5*Inverter_Current_Data.abc_data[index_a],0.99,-0.99);
+	HAL_PWM_DutyValue_Cal(&_p_epwm5,0.05*Inverter_Voltage_Data.abc_data[index_a],0.9,-0.9);
 	if(count<250000)
 	{
-		HAL_PWM_DutyValue_Cal(&_p_epwm5,-0.89,0.9,-0.9);
+		HAL_PWM_DutyValue_Cal(&_p_epwm6,-0.89,0.9,-0.9);
 	}
 	else
 	{
-		HAL_PWM_DutyValue_Cal(&_p_epwm5,0.89,0.9,-0.9);
+		HAL_PWM_DutyValue_Cal(&_p_epwm6,0.89,0.9,-0.9);
 	}
 	EPwm4Regs.CMPA.half.CMPA = _p_epwm4.cmpa_value;
 	EPwm5Regs.CMPA.half.CMPA = _p_epwm5.cmpa_value;
+	EPwm6Regs.CMPA.half.CMPA = _p_epwm6.cmpa_value;
 #endif
 	//AAL_Trans_ABCDQ0(&Inverter_Current_Data,Angle);
 #if _GRAPH_DISPLAY_
-	CON_PUSH_BUFFER(p_vol_sam.data[1]);
+	HAL_PUSH_BUFFER(Inverter_Voltage_Data.abc_data[0]);
 #endif
 	GpioDataRegs.GPBCLEAR.bit.GPIO60 = 1;
 	/*下面是清除中断标志位，不要修改*/

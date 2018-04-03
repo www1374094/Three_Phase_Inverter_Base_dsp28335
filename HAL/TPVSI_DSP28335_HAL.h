@@ -18,7 +18,7 @@
 
 
 
-
+#define _GRAPH_DISPLAY_ 0
 
 
 
@@ -31,6 +31,7 @@ extern EPWM_Structure _p_epwm3;
 #if DEBUG_DAC_OUTPUT
 extern EPWM_Structure _p_epwm4;
 extern EPWM_Structure _p_epwm5;
+extern EPWM_Structure _p_epwm6;
 #endif
 
 void HAL_EPWM_Structure_Init(void);
@@ -41,4 +42,6 @@ void HAL_Sample(Sample_Structure *p);
 void HAL_DutySet(ThreePhase_Data_Structure *p,EPWM_Structure *epa,EPWM_Structure *epb,EPWM_Structure *epc);
 float HAL_GetSampleResult(Uint8 index);
 void HAL_EPWM_DISABLE(void);
+void HAL_Relay_On(void);
+void HAL_PUSH_BUFFER(float x);
 #endif /* HAL_TPVSI_DSP28335_HAL_H_ */

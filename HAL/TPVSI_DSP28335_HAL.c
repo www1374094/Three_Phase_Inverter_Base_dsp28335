@@ -15,6 +15,7 @@ EPWM_Structure _p_epwm3;
 #if DEBUG_DAC_OUTPUT
 EPWM_Structure _p_epwm4;
 EPWM_Structure _p_epwm5;
+EPWM_Structure _p_epwm6;
 #endif
 Sin_Structure _p_sin1;
 Sample_Structure p_sam;
@@ -30,7 +31,7 @@ void HAL_Init(void)
 	BSP_ADC_Init();
 	BSP_ePWM_Init();
 	BSP_DMA_Init();
-
+	BSP_Driver_Rst();
 }
 void HAL_EPWM_Structure_Init(void)
 {
@@ -64,6 +65,12 @@ void HAL_EPWM_Structure_Init(void)
 	_p_epwm5.cmp_min = 0;
 	_p_epwm5.cmpa_value = 1500;
 	_p_epwm5.cmpb_value = 1500;
+	_p_epwm6.fre = 50000;
+    _p_epwm6.bias = 1500;
+    _p_epwm6.cmp_max = 3000;
+    _p_epwm6.cmp_min = 0;
+    _p_epwm6.cmpa_value = 1500;
+    _p_epwm6.cmpb_value = 1500;
 }
 
 #pragma CODE_SECTION(HAL_PWM_DutyValue_Cal,"ramfuncs");
@@ -92,15 +99,15 @@ void HAL_Sample_Init(Sample_Structure *p)
 		p->k[i] = 1;
 	}
 	/*TODO:在这里定义采样的系数*/
-	p->k[0] = 0.0362;
-	p->k[1] = 0.0362;
-	p->k[2] = 0.0362;
-	p->k[3] = -1*0.014066;
-	p->k[4] = -1*0.014066;
-	p->k[5] = -1*0.014066;
-	p->k[CapVoltageA] = 0.0362;
-	p->k[CapVoltageB] = 0.0362;
-	p->k[CapVoltageC] = 0.0362;
+	p->k[0] = 0.0690;
+	p->k[1] = 0.0690;
+	p->k[2] = 0.0690;
+	p->k[3] = -1*7.033e-3;
+	p->k[4] = -1*7.033e-3;
+	p->k[5] = -1*7.033e-3;
+	p->k[CapVoltageA] = 0.0690;
+	p->k[CapVoltageB] = 0.0690;
+	p->k[CapVoltageC] = 0.0690;
 	/*下面初始化数据数组*/
 	for(i=0;i<SAMPLE_NUM;i++)
 	{
@@ -127,15 +134,15 @@ void HAL_Sample(Sample_Structure *p)
 		zero[i] = 0;
 	}
 	/*TODO：在这里定义采样零点偏移量*/
-	zero[0] = 1430;
-	zero[1] = 1483;
-	zero[2] = 1430;
-	zero[3] = 1566;
-	zero[4] = 1567;
-	zero[5] = 1567;
-	zero[CapVoltageA] = 1430;
-	zero[CapVoltageB] = 1430;
-	zero[CapVoltageC] = 1430;
+	zero[0] = 1949;
+	zero[1] = 1945;
+	zero[2] = 1945;
+	zero[3] = 1560;
+	zero[4] = 1541;
+	zero[5] = 1560;
+	zero[CapVoltageA] = 1956;
+	zero[CapVoltageB] = 1950;
+	zero[CapVoltageC] = 1950;
 	/*下面计算各采样数据*/
 	for(i = 0;i<SAMPLE_NUM;i++)
 	{
@@ -207,3 +214,40 @@ void HAL_EPWM_DISABLE(void)
 	GpioDataRegs.GPACLEAR.bit.GPIO5 = 1;
 	EDIS;
 }
+
+/*
+ * FunName:HAL_Relay_On
+ * Description:打开所有继电器
+ * Input:None
+ * Output:None
+ * Others:None
+ * */
+void HAL_Relay_On(void)
+{
+    EALLOW;
+    GpioDataRegs.GPBSET.bit.GPIO33 = 0x01;
+    GpioDataRegs.GPBSET.bit.GPIO49 = 0x01;
+    GpioDataRegs.GPBSET.bit.GPIO58 = 0x01;
+    EDIS;
+}
+
+
+#if _GRAPH_DISPLAY_
+float display_buffer[512];
+#pragma CODE_SECTION(HAL_PUSH_BUFFER,"ramfuncs");
+/*
+ * FunName:HAL_PUSH_BUFFER
+ * Description:将采样数据存入显示缓冲区中
+ * Input:数据x
+ * Output:None
+ * */
+void HAL_PUSH_BUFFER(float x)
+{
+    Uint8 i;
+    for(i=1;i<512;i++)
+    {
+        display_buffer[i] = display_buffer[i-1];
+    }
+    display_buffer[0] = x;
+}
+#endif

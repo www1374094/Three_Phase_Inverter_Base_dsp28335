@@ -19,12 +19,12 @@ typedef enum{
 	CurrentC,
 	VoltageDC,
 	CurrentDC,
-	Nope1,
-	Nope2,
-	Nope3,
 	CapVoltageA,
 	CapVoltageB,
 	CapVoltageC,
+	InvCurrentA,
+	InvCurrentB,
+	InvCurrentC,
 	SAMPLE_NUM,//这个枚举变量必须放在所有变量的最后，用以标识采样数据的个数
 }Sample_Index;
 
